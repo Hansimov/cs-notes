@@ -33,8 +33,7 @@ void combine(int offset, int k){
 }
 
 int main(){
-
-    int n = 5, k = 3;
+    int n = 5, k = 4;
     for (int i=0; i<n; i++){
         array.push_back(i);
     }
