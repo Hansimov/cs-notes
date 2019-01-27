@@ -9,6 +9,6 @@ int main()
         a += 1;
     }
     cout << a << endl;
-    cin.get();
+    // cin.get();
     return 0;
 }
