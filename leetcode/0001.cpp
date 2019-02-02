@@ -1,33 +1,20 @@
 #include <stdio.h>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 
-int isInVector(vector<int> v, int ele){
-    for (int i=0; i<v.size(); ++i) {
-        if (v[i] == ele){
-            return i;
-        }
-    }
-    return -1;
-}
-
 vector<int> twoSum(vector<int>& nums, int target) {
-    vector<int> res = {0, 0};
-    vector<int> hash;
-    int idx;
+    unordered_map <int, int> val_idx_map;
     for (int i=0; i<nums.size(); ++i) {
-        idx = isInVector(hash, target-nums[i]);
-        if (idx != -1){
-            res[0] = idx;
-            res[1] = i;
-            return res;
+        if (val_idx_map.find(target-nums[i]) != val_idx_map.end()){
+            return vector<int> {val_idx_map[target-nums[i]], i};
         } else {
-            hash.push_back(nums[i]);
+            val_idx_map[nums[i]] = i;
         }
     }
-    return res;
+    return vector<int> {0,0};
 }
 
 int main() {
