@@ -14,7 +14,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
             val_idx_map[nums[i]] = i;
         }
     }
-    return vector<int> {0,0};
+    return vector<int> {0, 0};
 }
 
 int main() {
