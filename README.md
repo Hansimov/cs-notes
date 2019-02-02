@@ -1,2 +1,2 @@
-# poj-solutions
-Personal solutions to Peking Online Judge
+# oj-solutions
+Personal solutions to Popular Online Judges
