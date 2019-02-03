@@ -2,8 +2,9 @@
 a
 ab
 aa
+aba
 ccc
 cbbd
 babad
 abaaba
-abcbabcbabcbad
+abcbabcbabcbae
