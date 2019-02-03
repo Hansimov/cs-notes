@@ -15,7 +15,7 @@ class Solution {
 public:
 string longestPalindrome(string s) {
     int maxlen=0, maxlen_last=0;
-    int start, end, start_last, end_last;
+    int start, end, start_last;
     string subs;
 
     if (s.empty()) {
@@ -26,6 +26,9 @@ string longestPalindrome(string s) {
     for (int i=0; i<=2*s.size()-2; ++i) {
         start = i/2;
         end = (i+1)/2;
+        if ((s.size()-end)*2+(end-start)-1 <= maxlen_last){
+            break;
+        }
         while (start>=0 && end<=s.size()-1){
             if (s[start]==s[end]){
                 maxlen = end - start + 1;
