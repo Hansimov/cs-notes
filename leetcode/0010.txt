@@ -1,0 +1,16 @@
+aa
+a
+aaa
+a*
+ab
+.*
+a
+c*a
+aab
+c*a*b*
+aacdbcbd
+.*a.*b.*
+aacdbcbdb
+.*a.*b.*
+mississippi
+mis*is*p*.
