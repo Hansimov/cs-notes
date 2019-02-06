@@ -1,0 +1,1 @@
+g++ -pg test_gprof.cpp -o app
