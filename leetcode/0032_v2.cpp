@@ -18,8 +18,8 @@ static const auto _ = []() {
     return nullptr;
 }();
 
-// class Solution {
-// public:
+class Solution {
+public:
 int longestValidParentheses(string s) {
     if (s.empty()) return 0;
     int maxlen=0;
@@ -35,17 +35,19 @@ int longestValidParentheses(string s) {
         } else {
             ptr = t[ptr+1];
             if (ptr == -2) {
+                if (maxlen >= s.size()-1-i)
+                    break;
                 ptr = i;
                 t[ptr+1] = -2;
             } else {
-                if (maxlen<i-ptr)
+                if (maxlen<i-ptr) 
                     maxlen = i-ptr;
             }
         }
     }
     return maxlen;
 }
-// };
+};
 
 
 int main() {
