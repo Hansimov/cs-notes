@@ -12,30 +12,34 @@
 
 using namespace std;
 
-// class Solution {
-// public:
+class Solution {
+public:
 int longestValidParentheses(string s) {
     if (s.empty()) return 0;
     int maxlen=0;
-    stack<int> t;
-    t.push(-1);
+    int t[s.size()+1];
+    int ptr = -1;
+    memset(t, -1, sizeof(t));
 
+    t[0] = -2;
     for (int i=0; i<s.size(); ++i) {
         if (s[i]=='(') {
-            t.push(i);
+            t[i+1] = ptr;
+            ptr = i;
         } else {
-            t.pop();
-            if (t.empty()) {
-                t.push(i);
+            ptr = t[ptr+1];
+            if (ptr == -2) {
+                ptr = i;
+                t[ptr+1] = -2;
             } else {
-                maxlen = max(maxlen, i-t.top());
+                if (maxlen<i-ptr)
+                    maxlen = i-ptr;
             }
         }
     }
-
     return maxlen;
 }
-// };
+};
 
 
 int main() {
@@ -55,7 +59,7 @@ int main() {
 
     for (int i=0; i<vs.size(); ++i) {
         int n = longestValidParentheses(vs[i]);
-        printf("%d\t%d\t%d\n", n==vd[i], vd[i], n);
+        printf("%d\t%d\t%d\t%d\n", n==vd[i], 2*i+1, vd[i], n);
     }
 
     return 0;
