@@ -12,8 +12,8 @@
 
 using namespace std;
 
-// class Solution {
-// public:
+class Solution {
+public:
 int longestValidParentheses(string s) {
     if (s.empty()) return 0;
     int maxlen=0;
@@ -35,7 +35,7 @@ int longestValidParentheses(string s) {
 
     return maxlen;
 }
-// };
+};
 
 
 int main() {

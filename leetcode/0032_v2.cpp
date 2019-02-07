@@ -12,16 +12,22 @@
 
 using namespace std;
 
-class Solution {
-public:
+static const auto _ = []() {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    return nullptr;
+}();
+
+// class Solution {
+// public:
 int longestValidParentheses(string s) {
     if (s.empty()) return 0;
     int maxlen=0;
     int t[s.size()+1];
     int ptr = -1;
     memset(t, -1, sizeof(t));
-
     t[0] = -2;
+
     for (int i=0; i<s.size(); ++i) {
         if (s[i]=='(') {
             t[i+1] = ptr;
@@ -39,7 +45,7 @@ int longestValidParentheses(string s) {
     }
     return maxlen;
 }
-};
+// };
 
 
 int main() {
