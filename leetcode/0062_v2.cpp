@@ -16,8 +16,8 @@ static const auto _ = []() {
     return nullptr;
 }();
 
-// class Solution {
-// public:
+class Solution {
+public:
 int uniquePaths(int m, int n) {
     if (m==0 || n==0) return 0;
     // C(m+n-2, n-1) = (m+n-2)! / (n-1)! / (m-1)!
@@ -35,7 +35,7 @@ int uniquePaths(int m, int n) {
 
     return (int)res;
 }
-// };
+};
 
 int main() {
     string sin;
