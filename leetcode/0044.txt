@@ -1,0 +1,22 @@
+
+1 
+
+1 *
+aa
+0 a
+aa
+1 *
+cb
+0 ?a
+adceb
+1 *a*b
+acdcb
+0 a*c?b
+abcabc
+1 *
+abc
+1 **
+abcg
+1 *?
+abcg
+0 *?b
