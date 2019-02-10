@@ -16,8 +16,8 @@ static const auto _ = []() {
     return nullptr;
 }();
 
-class Solution {
-public:
+// class Solution {
+// public:
 int minPathSum(vector<vector<int>>& grid) {
     if (grid.empty()) return 0;
     if (grid[0].empty()) return 0;
@@ -25,10 +25,10 @@ int minPathSum(vector<vector<int>>& grid) {
     int row = grid.size();
     int col = grid[0].size();
 
-    // int dp[row+1][col+1];
-    // memset(dp, 0, dp[0][0]*(row+1)*(col+1));
+    int dp[row+1][col+1];
+    memset(dp, 0, sizeof(dp[0][0])*(row+1)*(col+1));
 
-    vector<vector<int> > dp(row+1, vector<int>(col+1, 0));
+    // vector<vector<int> > dp(row+1, vector<int>(col+1, 0));
 
     for (int i=0; i<row; ++i) {
         dp[i+1][1] = dp[i][1] + grid[i][0];
@@ -45,7 +45,7 @@ int minPathSum(vector<vector<int>>& grid) {
 
     return (int)dp[row][col];
 }
-};
+// };
 
 int main() {
     string sin;
