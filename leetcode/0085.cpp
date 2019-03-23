@@ -1,3 +1,6 @@
+// Maximum size rectangle binary sub-matrix with all 1s
+//   https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -16,13 +19,53 @@ static const auto _ = []() {
     return nullptr;
 }();
 
-// class Solution {
-// public:
-int maximalRectangle(vector<vector<char>>& matrix) {
+int largestRectangleArea(vector<int>& heights) {
+    heights.push_back(0); // Terminator
+    stack<int> st;
+    int max_area=0;
+    int ptr=0;
 
-    return matrix.size();
+    for (int i=0; i<heights.size(); ++i) {
+        if (st.empty() || heights[i] > heights[st.top()] ) {
+            st.push(i);
+        } else {
+            ptr = st.top();
+            st.pop();
+            max_area = max(max_area, heights[ptr]*(st.empty()?i:i-st.top()-1));
+            --i; // Important! To check all previous higher histogram.
+        }
+    }
+
+    return max_area;
 }
-// };
+
+class Solution {
+public:
+int maximalRectangle(vector<vector<char>>& matrix) {
+    if (matrix.size()==0)
+        return 0;
+
+    int max_area=0;
+    vector<int> row;
+    int rownum = matrix.size();
+    int colnum = matrix[0].size();
+
+    for (int j=0; j<colnum; ++j) {
+        row.push_back(0);
+    }
+
+    for (int i=0; i<rownum; ++i) {
+        for (int j=0; j<colnum; ++j) {
+            if (matrix[i][j]=='0')
+                row[j] = 0;
+            else
+                row[j] += 1;
+        }
+        max_area = max(max_area, largestRectangleArea(row));
+    }
+    return max_area;
+}
+};
 
 int main() {
     string sin;
