@@ -16,22 +16,18 @@ static const auto _ = []() {
     return nullptr;
 }();
 
-class Solution {
-public:
+// class Solution {
+// public:
 int numTrees(int n) {
     if (n==0) return 0;
-    if (n==1) return 1;
-    if (n==2) return 2;
     int dp[n+1]; // dp[i]: num of trees when n==i
     for (int i=0; i<n+1; ++i) {
         dp[i] = 0;
     }
     dp[0] = 1; // Caution!
-    dp[1] = 1;
-    dp[2] = 2;
 
     int tmp;
-    for (int i=3; i<n+1; ++i) {
+    for (int i=1; i<n+1; ++i) {
         tmp = 0;
         for (int p=0; p<i; ++p) {
             tmp += dp[p] * dp[i-1-p];
@@ -41,7 +37,7 @@ int numTrees(int n) {
 
     return dp[n];
 }
-};
+// };
 
 
 int main() {
