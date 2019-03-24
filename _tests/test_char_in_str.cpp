@@ -1,3 +1,6 @@
+// std::string::find
+//   http://www.cplusplus.com/reference/string/string/find/
+
 #include <iostream>
 #include <string>
 
@@ -10,5 +13,8 @@ int main () {
         cout << "Not Found" << endl;
     else
         cout << s.find(c) << endl;
-  return 0;
+
+    // cout << s.find(s[4]) << endl;
+
+    return 0;
 }
