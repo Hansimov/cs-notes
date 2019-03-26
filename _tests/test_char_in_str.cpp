@@ -13,6 +13,7 @@ int main () {
         cout << "Not Found" << endl;
     else
         cout << s.find(c) << endl;
+    // printf("%d\n", s.find(c));
 
     // cout << s.find(s[4]) << endl;
 
