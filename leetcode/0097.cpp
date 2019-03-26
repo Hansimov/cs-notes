@@ -1,3 +1,9 @@
+// LeetCode: Interleaving String [097]
+//   http://www.voidcn.com/article/p-urihdywq-bv.html
+
+// My DP solution in C++
+//   https://leetcode.com/problems/interleaving-string/discuss/31879/My-DP-solution-in-C%2B%2B
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -10,42 +16,31 @@
 
 using namespace std;
 
-// class Solution {
-// public:
+class Solution {
+public:
 bool isInterleave(string s1, string s2, string s3) {
     if (s1.size()+s2.size() != s3.size())
         return false;
-    int p=0, q=0;
-    vector<vector<int>> v;
-    vector<int> vtmp;
-    int i=0;
-    while (i<s3.size()) {
-        if (s3[i] == s1[p] && s3[i]==s2[q]) {
-            v.push_back({p,q});
+
+    bool dp[s1.size()+1][s2.size()+1];
+    // dp[i][j]: s1[0:i) and s2[0:j) can represent s3[0:i+j)
+
+    dp[0][0] = true;
+    for (int i=0; i<s1.size(); ++i)
+        dp[i+1][0] = (s1[i]==s3[i] && dp[i][0]);
+    for (int j=0; j<s2.size(); ++j)
+        dp[0][j+1] = (s2[j]==s3[j] && dp[0][j]);
+
+    for (int i=0; i<s1.size(); ++i) {
+        for (int j=0; j<s2.size(); ++j) {
+            dp[i+1][j+1] = (s1[i]==s3[i+j+1] && dp[i][j+1]) 
+                        || (s2[j]==s3[i+j+1] && dp[i+1][j]);
         }
-        if (s3[i] == s1[p]) {
-            ++p;
-        }
-        else if (s3[i] == s2[q]) {
-            ++q;
-        }
-        else {
-            if (v.empty()) {
-                return false;
-            } else {
-                vtmp = v.back();
-                v.pop_back();
-                p = vtmp[0];
-                q = vtmp[1]+1;
-                i = p+q-1; // Caution the -1 here: later we will ++i
-            }
-        }
-        ++i;
     }
 
-    return true;
+    return dp[s1.size()][s2.size()];
 }
-// };
+};
 
 int main() {
     string sin, rin, s1, s2, s3;
