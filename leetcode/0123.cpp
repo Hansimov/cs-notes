@@ -1,3 +1,6 @@
+// A clean DP solution which generalizes to k transactions
+//   https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/discuss/39608/A-clean-DP-solution-which-generalizes-to-k-transactions
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -10,27 +13,28 @@
 
 using namespace std;
 
-int maxProfitSingle(vector<int>& prices) {
-    int low = INT32_MAX;
-    int res = 0;
-    for(int& p:prices){
-        res = max(res, p-low);
-        low = min(low, p);
-    }
-    return res;
-}
-
 class Solution {
 public:
 int maxProfit(vector<int>& prices) {
+    // dp[k,i]: max profit of prices[0:i) at most k trades
+    // dp[k,i] = max(dp[k,i-1], max(dp[k-1,j] + prices[i]-prices[j]))
+    //         = max(dp[k,i-1], prices[i] + max(dp[k-1,j]-prices[j]))
+    //          where j in [0,i-1]
     if (prices.empty()) return 0;
+    int K = 2;
     int res = 0;
-    for (int i=0; i<prices.size()+1; ++i) {
-        std::vector<int> sub1(&prices[0],&prices[i]);
-        std::vector<int> sub2(&prices[i],&prices[prices.size()]);
-        res = max(res, maxProfitSingle(sub1)+maxProfitSingle(sub2));
+    int tmp=0;
+    vector<vector<int>> dp(K+1, vector<int>(prices.size(), 0));
+
+    for (int k=1; k<K+1; ++k) {
+        tmp = dp[k-1][0] - prices[0];
+        for (int i=1; i<prices.size(); ++i) {
+            dp[k][i] = max(dp[k][i-1], prices[i] + tmp);
+            tmp = max(tmp, dp[k-1][i]-prices[i]);
+        }
     }
-    return res;
+
+    return dp[2][prices.size()-1];
 }
 };
 
