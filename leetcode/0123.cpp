@@ -10,36 +10,29 @@
 
 using namespace std;
 
-// class Solution {
-// public:
-int maxProfit(vector<int>& prices) {
-    if (prices.empty())
-        return 0;
-    int prof=0;
-    vector<int> p;
-    int low=prices[0], high=prices[0];
-    for (int i=0; i<prices.size(); ++i) {
-        if (prices[i]<high) {
-            p.push_back(high-low);
-            high = low = prices[i];
-        } else {
-            high = prices[i];
-        }
+int maxProfitSingle(vector<int>& prices) {
+    int low = INT32_MAX;
+    int res = 0;
+    for(int& p:prices){
+        res = max(res, p-low);
+        low = min(low, p);
     }
-    p.push_back(high-low);
-
-    sort(p.begin(), p.end(), greater<int>());
-
-
-    for (auto x : p) {
-        prof += x;
-        // cout << x << " ";
-    }
-    // cout << endl;
-
-    return prof;
+    return res;
 }
-// };
+
+class Solution {
+public:
+int maxProfit(vector<int>& prices) {
+    if (prices.empty()) return 0;
+    int res = 0;
+    for (int i=0; i<prices.size()+1; ++i) {
+        std::vector<int> sub1(&prices[0],&prices[i]);
+        std::vector<int> sub2(&prices[i],&prices[prices.size()]);
+        res = max(res, maxProfitSingle(sub1)+maxProfitSingle(sub2));
+    }
+    return res;
+}
+};
 
 int main() {
     string sin, rin;
