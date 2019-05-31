@@ -2,8 +2,6 @@ aab
 1
 aaabaaa
 0
-aba
-0
 abba
 0
 abcba
@@ -20,3 +18,15 @@ abaababa
 1
 abaabab
 1
+abaaba
+0
+abaab
+1
+abaa
+1
+aba
+0
+ab
+1
+a
+0
