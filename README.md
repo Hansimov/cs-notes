@@ -72,12 +72,17 @@ int main() {
     printf("--- --- --- --- \n");
     printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
     printf("--- --- --- --- \n");
+    int correct_cnt=0;
     int line=1;
     for (int i=0; i<vr.size(); ++i) {
         int res = climbStairs(vn[i]);
-        printf("%d\t%d\t%d\t%d\t\n", res==vr[i], line, vr[i], res);
+        bool is_correct = res==vr[i];
+        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        if (is_correct) ++correct_cnt;
         line += 1;
     }
+    printf("--- --- --- --- \n");
+    printf("%d/%d\n", correct_cnt, vr.size());
 
     return 0;
 }
@@ -146,13 +151,15 @@ int main() {
 
     printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
     printf("--- --- --- --- \n");
+    int correct_cnt=0;
     for (int i=0; i<vs.size(); ++i) {
-        int r = maxSubArray(vn[i]);
-        printf("%d\t%d\t%d\t%d\n", r==vr[i], 2*i+1, vr[i], r);
-        // for (int j=0; j<vn[i].size(); ++j) {
-        //     printf("\n%d", vn[i][j]);
-        // }
+        int res = maxSubArray(vn[i]);
+        bool is_correct = res==vr[i];
+        printf("%d\t%d\t%d\t%d\n", is_correct, 2*i+1, vr[i], r);
+        if (is_correct) ++correct_cnt;
     }
+    printf("--- --- --- --- \n");
+    printf("%d/%d\n", correct_cnt, vr.size());
 
     return 0;
 }
@@ -220,13 +227,17 @@ int main() {
     printf("--- --- --- --- \n");
     printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
     printf("--- --- --- --- \n");
+    int correct_cnt=0;
     int line=1;
     for (int i=0; i<vr.size(); ++i) {
         int res = minPathSum(vg[i]);
-        printf("%d\t%d\t%d\t%d\t\n", res==vr[i], line, vr[i], res);
-        // printf("%d %d\n", vg[i].size(), vg[i][0].size());
+        bool is_correct = res==vr[i];
+        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        if (is_correct) ++correct_cnt;
         line += vg[i].size()+1;
     }
+    printf("--- --- --- --- \n");
+    printf("%d/%d\n", correct_cnt, vr.size());
 
     return 0;
 ```
@@ -319,17 +330,19 @@ int main() {
     printf("--- --- --- --- \n");
     printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
     printf("--- --- --- --- \n");
+    int correct_cnt=0;
     int line=1;
     for (int i=0; i<vr.size(); ++i) {
         int res = numDecodings(vs1[i]);
-        printf("%d\t%d\t%d\t%d\t\n", res==vr[i], line, vr[i], res);
+        bool is_correct = res==vr[i];
+        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        if (is_correct) ++correct_cnt;
         line += 2;
     }
 
     return 0;
 }
 ```
-
 
 
 ### Input form: strings
@@ -384,12 +397,17 @@ int main() {
     printf("--- --- --- --- \n");
     printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
     printf("--- --- --- --- \n");
+    int correct_cnt=0;
     int line=1;
     for (int i=0; i<vr.size(); ++i) {
         int res = minDistance(vs1[i], vs2[i]);
-        printf("%d\t%d\t%d\t%d\t\n", res==vr[i], line, vr[i], res);
+        bool is_correct = res==vr[i];
+        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        if (is_correct) ++correct_cnt;
         line += 1;
     }
+    printf("--- --- --- --- \n");
+    printf("%d/%d\n", correct_cnt, vr.size());
 
     return 0;
 }
