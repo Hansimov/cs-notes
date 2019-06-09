@@ -1,5 +1,7 @@
 // LeetCode132——分割回文串II
 //  https://blog.csdn.net/qq_41231926/article/details/85335825
+// [C++] LeetCode 132. 分割回文串 II
+//  https://blog.csdn.net/lv1224/article/details/79973374
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -12,38 +14,40 @@
 
 using namespace std;
 
+
 // class Solution {
 // public:
 int minCut(string s) {
+    if (s.size()==0) return 0;
+    int cut[s.size()+1]; // cut[i]: min cut of s[0:i+1)
+    bool pal[s.size()+1][s.size()+1]; // pal[i][j]: Is s[i:j+1) palindrome
 
-    int cut[s.size()]; // cut[i]: min cut of s[0:i+1)
-    bool pal[s.size()][s.size()]; // pal[i][j]: Is s[i:j+1) palindrome
-
-    pal[0][0] = true;
+/* (i,j) iteration order:
+line 0: (0,0)->(1,1)->(2,2)->        ... ->(n-1,n-1)
+line 1:        (0,1)->(1,2)->(2,3)-> ... ->(n-2,n-1)
+line 2:               (0,2)->(1,3)-> ... ->(n-3,n-1)
+                      ...
+line n-3:                (0,n-3)->(1,n-2)->(2,n-1)
+line n-2:                         (0,n-2)->(1,n-1)
+line n-1:                                ->(0,n-1)
+*/
+    int low, high;
     for (int i=0; i<s.size(); ++i) {
-        for (int j=i; j<s.size(); ++j) {
-            if (s[i]==s[j]) {
-                if (j-i<=2){
-                    pal[i][j] = true;
+        for (int j=0; j<s.size()-i; ++j) {
+            low = j;
+            high = low + i;
+            if (s[low]==s[high]) {
+                if (high-low<=2){
+                    pal[low][high] = true;
                 } else {
-                    pal[i][j] = pal[i+1][j-1];
+                    pal[low][high] = pal[low+1][high-1];
                 }
             } else {
-                pal[i][j] == false;
+                pal[low][high] = false;
             }
         }
     }
 
-    // for (int i=0; i<s.size(); ++i) {
-    //     for (int j=0; j<s.size(); ++j) {
-    //         cout << pal[i][j] << " ";
-    //     }
-    //     cout << endl;
-    // }
-
-    for (int i=0; i<s.size(); ++i) {
-        cut[i] = i;
-    }
     for (int i=0; i<s.size(); ++i) {
         for (int j=i; j>=0; --j) {
             if (pal[j][i]) {
