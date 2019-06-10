@@ -1,0 +1,12 @@
+leetcode
+1 leet code
+applepenapple
+1 apple pen
+catsandog
+0 cats dog sand and cat
+aaaaa
+0 aa aaaa
+abababababa
+0 ba ab
+abababababa
+1 ab aba

@@ -19,8 +19,8 @@ using namespace std;
 // public:
 int minCut(string s) {
     if (s.size()==0) return 0;
-    int cut[s.size()+1]; // cut[i]: min cut of s[0:i+1)
-    bool pal[s.size()+1][s.size()+1]; // pal[i][j]: Is s[i:j+1) palindrome
+    int cut[s.size()]; // cut[i]: min cut of s[0:i+1)
+    bool pal[s.size()][s.size()]; // pal[i][j]: Is s[i:j+1) palindrome
 
 /* (i,j) iteration order:
 line 0: (0,0)->(1,1)->(2,2)->        ... ->(n-1,n-1)
@@ -59,6 +59,10 @@ line n-1:                                ->(0,n-1)
             }
         }
     }
+    for (int i=0; i<sizeof(cut)/sizeof(*cut); ++i) {
+        cout << cut[i] << " ";
+    }
+    cout << endl;
 
     return cut[s.size()-1];
 }
