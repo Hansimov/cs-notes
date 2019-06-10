@@ -20,9 +20,14 @@ bool wordBreak(string s, vector<string>& wordDict) {
 
     dp[0] = true;
 
+    int maxlen = 0;
+    for (string word: wordDict) {
+        maxlen = max(maxlen,(int)word.size());
+    }
+
     for (int i=1; i<=n; ++i) {
         dp[i]  = false;
-        for (int j=i-1; j>=0; --j) {
+        for (int j=i-1; j>=max(i-maxlen,0); --j) {
             if (dp[j]) {
                 if (find(wordDict.begin(),wordDict.end(),s.substr(j,i-j)) != wordDict.end()) {
                     dp[i] = true;
