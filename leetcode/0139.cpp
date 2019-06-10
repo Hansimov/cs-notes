@@ -13,8 +13,46 @@ using namespace std;
 // class Solution {
 // public:
 bool wordBreak(string s, vector<string>& wordDict) {
+    if (wordDict.empty()) return false;
 
-    
+    vector<int> v; // store indexes of word in dict
+    string word;
+    int len;
+    int ptr = 0;
+    int start = 0;
+
+    while (ptr<s.size()) {
+        for (int i=start; i<wordDict.size(); ++i) { // loop through dict
+            word = wordDict[i];
+            len = word.size();
+            if (s.substr(ptr,len) == word) {
+                v.push_back(i);
+                ptr += len;
+                if (ptr==s.size()) {
+                    return true;
+                } else {
+                    start = 0;
+                    break;
+                }
+            } else {
+                if (i==wordDict.size()-1) {
+                    if (v.empty()) {
+                        return false;
+                    } else {
+                        while (v.back()==wordDict.size()-1) {
+                            v.pop_back();
+                            if (v.empty()) {
+                                return false;
+                            }
+                        }
+                        start = v.back()+1;
+                        ptr -= wordDict[v.back()].size();
+                        v.pop_back();
+                    }
+                }
+            }
+        }
+    }
     return false;
 }
 // };
@@ -56,7 +94,7 @@ int main() {
         bool is_correct = res==vr[i];
         printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
         if (is_correct) ++correct_cnt;
-        line += 1;
+        line += 2;
     }
     printf("--- --- --- --- \n");
     printf("%d/%d\n", correct_cnt, vr.size());
