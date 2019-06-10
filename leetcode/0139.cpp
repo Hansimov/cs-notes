@@ -15,45 +15,24 @@ using namespace std;
 bool wordBreak(string s, vector<string>& wordDict) {
     if (wordDict.empty()) return false;
 
-    vector<int> v; // store indexes of word in dict
-    string word;
-    int len;
-    int ptr = 0;
-    int start = 0;
+    int n = s.size();
+    bool dp[n+1]; // dp[i]: s[0,i) can be composed from wordDict
 
-    while (ptr<s.size()) {
-        for (int i=start; i<wordDict.size(); ++i) { // loop through dict
-            word = wordDict[i];
-            len = word.size();
-            if (s.substr(ptr,len) == word) {
-                v.push_back(i);
-                ptr += len;
-                if (ptr==s.size()) {
-                    return true;
-                } else {
-                    start = 0;
+    dp[0] = true;
+
+    for (int i=1; i<=n; ++i) {
+        dp[i]  = false;
+        for (int j=i-1; j>=0; --j) {
+            if (dp[j]) {
+                if (find(wordDict.begin(),wordDict.end(),s.substr(j,i-j)) != wordDict.end()) {
+                    dp[i] = true;
                     break;
-                }
-            } else {
-                if (i==wordDict.size()-1) {
-                    if (v.empty()) {
-                        return false;
-                    } else {
-                        while (v.back()==wordDict.size()-1) {
-                            v.pop_back();
-                            if (v.empty()) {
-                                return false;
-                            }
-                        }
-                        start = v.back()+1;
-                        ptr -= wordDict[v.back()].size();
-                        v.pop_back();
-                    }
                 }
             }
         }
     }
-    return false;
+
+    return dp[n];
 }
 // };
 
