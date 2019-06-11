@@ -155,7 +155,7 @@ int main() {
     for (int i=0; i<vs.size(); ++i) {
         int res = maxSubArray(vn[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\n", is_correct, 2*i+1, vr[i], r);
+        printf("%d\t%d\t%d\t%d\n", is_correct, 2*i+1, vr[i], res);
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
