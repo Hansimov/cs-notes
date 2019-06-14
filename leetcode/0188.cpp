@@ -1,3 +1,4 @@
+// Refer to leetcode 0123
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -12,9 +13,27 @@ using namespace std;
 
 // class Solution {
 // public:
-int maxProfit(int k, vector<int>& prices) {
-    
-    return 0;
+int maxProfit(int K, vector<int>& prices) {
+    if (prices.empty()) return 0;
+    K = min(K, int(prices.size()/2)+1); // K may be large
+    // dp[k,i]: max profit of prices[0:i] at most k trades
+    // dp[k,i] = max(dp[k,i-1], max(dp[k-1,j] + prices[i]-prices[j]))
+    //         = max(dp[k,i-1], prices[i] + max(dp[k-1,j]-prices[j]))
+    //          where j in [0,i-1]
+    int diff = 0;
+
+    vector<vector<int>> dp(K+1, vector<int>(prices.size(), 0));
+
+    for (int k=1; k<=K; ++k) {
+        diff = dp[k-1][0] - prices[0];
+        for (int i=1; i<prices.size(); ++i) {
+            dp[k][i] = max(dp[k][i-1], prices[i]+diff);
+            diff = max(diff, dp[k-1][i]-prices[i]);
+        }
+    }
+
+
+    return dp[K][prices.size()-1];
 }
 // };
 

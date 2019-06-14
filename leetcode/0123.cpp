@@ -13,17 +13,17 @@
 
 using namespace std;
 
-class Solution {
-public:
+// class Solution {
+// public:
 int maxProfit(vector<int>& prices) {
-    // dp[k,i]: max profit of prices[0:i) at most k trades
+    // dp[k,i]: max profit of prices[0:i] at most k trades
     // dp[k,i] = max(dp[k,i-1], max(dp[k-1,j] + prices[i]-prices[j]))
     //         = max(dp[k,i-1], prices[i] + max(dp[k-1,j]-prices[j]))
     //          where j in [0,i-1]
     if (prices.empty()) return 0;
     int K = 2;
     int res = 0;
-    int tmp=0;
+    int tmp = 0;
     vector<vector<int>> dp(K+1, vector<int>(prices.size(), 0));
 
     for (int k=1; k<K+1; ++k) {
@@ -36,7 +36,7 @@ int maxProfit(vector<int>& prices) {
 
     return dp[2][prices.size()-1];
 }
-};
+// };
 
 int main() {
     string sin, rin;
