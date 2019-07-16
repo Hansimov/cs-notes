@@ -1,4 +1,8 @@
 // Refer to leetcode 0123
+
+// Reply to: A Concise DP Solution in Java
+//  https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/discuss/54113/A-Concise-DP-Solution-in-Java/55579
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -15,14 +19,21 @@ using namespace std;
 // public:
 int maxProfit(int K, vector<int>& prices) {
     if (prices.empty()) return 0;
-    K = min(K, int(prices.size()/2)+1); // K may be large
+    // K = min(K, int(prices.size()/2)+1); // K may be large
+
+    if ( K > prices.size()/2 ) {
+        int res = 0;
+        for ( int i=1; i<prices.size(); i++ ) res += max(0,prices[i]-prices[i-1]);
+        return res;
+    }
     // dp[k,i]: max profit of prices[0:i] at most k trades
     // dp[k,i] = max(dp[k,i-1], max(dp[k-1,j] + prices[i]-prices[j]))
     //         = max(dp[k,i-1], prices[i] + max(dp[k-1,j]-prices[j]))
     //          where j in [0,i-1]
-    int diff = 0;
 
+    int diff = 0;
     vector<vector<int>> dp(K+1, vector<int>(prices.size(), 0));
+    // int dp[K+1][prices.size()] = {};
 
     for (int k=1; k<=K; ++k) {
         diff = dp[k-1][0] - prices[0];
@@ -31,7 +42,6 @@ int maxProfit(int K, vector<int>& prices) {
             diff = max(diff, dp[k-1][i]-prices[i]);
         }
     }
-
 
     return dp[K][prices.size()-1];
 }

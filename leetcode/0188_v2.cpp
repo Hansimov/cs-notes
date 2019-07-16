@@ -1,4 +1,11 @@
 // Refer to leetcode 0123
+
+// O(n)-time 8ms Accepted Solution with Detailed Explanation (C++) - LeetCode Discuss 
+//  https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/discuss/54145/O(n)-time-8ms-Accepted-Solution-with-Detailed-Explanation-(C%2B%2B)
+
+// C++ Solution with O(n + klgn) time using Max Heap and Stack - LeetCode Discuss 
+//  https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/discuss/54118/C%2B%2B-Solution-with-O(n-%2B-klgn)-time-using-Max-Heap-and-Stack
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
