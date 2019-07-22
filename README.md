@@ -11,6 +11,7 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
+#include <limits.h>
 
 using namespace std;
 ```
@@ -54,13 +55,16 @@ int climbStairs(int n) {
     return 0;
 }
 
+string filename = "0070.txt";
+const auto& myFunc = climbStairs;
+
 int main() {
     string sin;
     int n, r;
     vector<int> vn, vr;
 
     ifstream fp;
-    fp.open("0070.txt");
+    fp.open(filename);
 
     while (getline(fp, sin, '\n')) {
         stringstream ss(sin);
@@ -76,7 +80,7 @@ int main() {
     int correct_cnt=0;
     int line=1;
     for (int i=0; i<vr.size(); ++i) {
-        int res = climbStairs(vn[i]);
+        int res = myFunc(vn[i]);
         bool is_correct = res==vr[i];
         printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
         if (is_correct) ++correct_cnt;
@@ -122,6 +126,9 @@ int maxSubArray(vector<int>& nums) {
     return 0;
 }
 
+string filename = "0053.txt";
+const auto& myFunc = maxSubArray;
+
 int main() {
     string sin, rin;
     vector<string> vs;
@@ -129,7 +136,7 @@ int main() {
     vector<int> vr;
 
     ifstream fp;
-    fp.open("0053.txt");
+    fp.open(filename);
 
     int d;
     int c=0;
@@ -154,7 +161,7 @@ int main() {
     printf("--- --- --- --- \n");
     int correct_cnt=0;
     for (int i=0; i<vs.size(); ++i) {
-        int res = maxSubArray(vn[i]);
+        int res = myFunc(vn[i]);
         bool is_correct = res==vr[i];
         printf("%d\t%d\t%d\t%d\n", is_correct, 2*i+1, vr[i], res);
         if (is_correct) ++correct_cnt;
@@ -199,6 +206,9 @@ int minPathSum(vector<vector<int>>& grid) {
     return 0;
 }
 
+string filename = "0064.txt";
+const auto& myFunc = minPathSum;
+
 int main() {
     string sin;
     int rr, row, col, weight;
@@ -206,7 +216,7 @@ int main() {
     vector<int> vr;
 
     ifstream fp;
-    fp.open("0064.txt");
+    fp.open(filename);
 
     while (getline(fp, sin, '\n')) {
         stringstream ss(sin);
@@ -231,7 +241,7 @@ int main() {
     int correct_cnt=0;
     int line=1;
     for (int i=0; i<vr.size(); ++i) {
-        int res = minPathSum(vg[i]);
+        int res = myFunc(vg[i]);
         bool is_correct = res==vr[i];
         printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
         if (is_correct) ++correct_cnt;
@@ -308,6 +318,9 @@ int numDecodings(string s) {
     return s.size();
 }
 
+string filename = "0091.txt";
+const auto& myFunc = numDecodings;
+
 int main() {
     string sin, rin, s1;
     int r;
@@ -315,7 +328,7 @@ int main() {
     vector<string> vs1;
 
     ifstream fp;
-    fp.open("0091.txt");
+    fp.open(filename);
 
     while (getline(fp, sin, '\n')) {
         stringstream ss(sin);
@@ -334,7 +347,7 @@ int main() {
     int correct_cnt=0;
     int line=1;
     for (int i=0; i<vr.size(); ++i) {
-        int res = numDecodings(vs1[i]);
+        int res = myFunc(vs1[i]);
         bool is_correct = res==vr[i];
         printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
         if (is_correct) ++correct_cnt;
@@ -374,6 +387,9 @@ int minDistance(string word1, string word2) {
     return 0;
 }
 
+string filename = "0072.txt";
+const auto& myFunc = minDistance;
+
 int main() {
     string sin, rin, s1, s2;
     int r;
@@ -381,7 +397,7 @@ int main() {
     vector<string> vs1, vs2;
 
     ifstream fp;
-    fp.open("0072.txt");
+    fp.open(filename);
 
     while (getline(fp, sin, '\n')) {
         stringstream ss(sin);
@@ -401,7 +417,7 @@ int main() {
     int correct_cnt=0;
     int line=1;
     for (int i=0; i<vr.size(); ++i) {
-        int res = minDistance(vs1[i], vs2[i]);
+        int res = myFunc(vs1[i], vs2[i]);
         bool is_correct = res==vr[i];
         printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
         if (is_correct) ++correct_cnt;
@@ -446,6 +462,9 @@ bool wordBreak(string s, vector<string>& wordDict) {
     return false;
 }
 
+string filename = "0139.txt";
+const auto& myFunc = wordBreak;
+
 int main() {
     string sin, rin, s, word;
     int r;
@@ -454,7 +473,7 @@ int main() {
     vector<int> vr;
 
     ifstream fp;
-    fp.open("0139.txt");
+    fp.open(filename);
 
     while (getline(fp, sin, '\n')) {
         stringstream ss(sin);
@@ -478,7 +497,7 @@ int main() {
     int correct_cnt=0;
     int line=1;
     for (int i=0; i<vr.size(); ++i) {
-        bool res = wordBreak(vs[i], vw[i]);
+        bool res = myFunc(vs[i], vw[i]);
         bool is_correct = res==vr[i];
         printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
         if (is_correct) ++correct_cnt;
