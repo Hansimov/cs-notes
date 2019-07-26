@@ -1,3 +1,10 @@
+/*
+- [代码有问题] 白话LeetCode | 321. Create Maximum Number | 追薪吧 
+    http://zhuixin8.com/2016/10/02/leetcode-321/
+- Share my greedy solution - LeetCode Discuss 
+    https://leetcode.com/problems/create-maximum-number/discuss/77285/Share-my-greedy-solution/81245
+*/
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -12,10 +19,52 @@
 
 using namespace std;
 
-vector<int> maxNumber(vector<int>& nums1, vector<int>& nums2, int k) {
-    vector<int> dp(k,0);
-    return dp;
+vector<int> maxSub(vector<int> nums, int kk) {
+    vector<int> sub = {};
+    for (int i=0; i<nums.size(); ++i) {
+        while (!sub.empty() && sub.size()+nums.size()-i>kk && sub.back()<nums[i]) {
+            sub.pop_back();
+        }
+        sub.push_back(nums[i]);
+    }
+    return sub;
 }
+
+vector<int> mergeSubs(vector<int> sub1, vector<int> sub2) {
+    vector<int> merged = {};
+    while (!sub1.empty() && !sub2.empty()) {
+        vector<int>& p = sub1[0] > sub2[0] ? sub1 : sub2;
+        merged.push_back(p[0]);
+        p.erase(p.begin());
+    }
+
+    vector<int>& p = sub1.empty() ? sub2 : sub1;
+
+    merged.insert(merged.end(), p.begin(), p.end());
+
+    return merged;
+}
+
+vector<int> maxNumber(vector<int>& nums1, vector<int>& nums2, int k) {
+    if (k==0) return {};
+
+    vector<int> maxVec={};
+    int n1=nums1.size(), n2=nums2.size();
+
+    // for (int j=0; j<nums1.size(); ++j) {
+    //     cout << nums1[j] << "=";
+    // }
+    // cout << endl;
+
+    for (int i=max(0,k-n2); i<=min(k,n1); ++i) {
+        maxVec = max(maxVec, mergeSubs(maxSub(nums1,i), maxSub(nums2,k-i)));
+    }
+
+    cout << "+" << maxVec.size() << "+" << endl;
+    return maxVec;
+}
+
+
 
 string filename = "0321.txt";
 const auto& myFunc = maxNumber;
