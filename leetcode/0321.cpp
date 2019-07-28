@@ -27,7 +27,6 @@ vector<int> maxSub(vector<int> nums, int kk) {
         while (!sub.empty() && sub.size()+nums.size()-i>kk && sub.back()<nums[i]) {
             sub.pop_back();
         }
-        sub.push_back(nums[i]);
     }
     sub.resize(kk);
     // cout << "=" << sub.size() << "=";
