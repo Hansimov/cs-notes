@@ -223,7 +223,7 @@ int main() {
         getline(fp, rin, '\n');
 
         stringstream ss1(sin1);
-        stringstream ss2(sin1);
+        stringstream ss2(sin2);
         stringstream sr(rin);
 
         vector<int> vvi1 = {};

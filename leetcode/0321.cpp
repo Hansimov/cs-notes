@@ -1,6 +1,8 @@
 /*
-- [代码有问题] 白话LeetCode | 321. Create Maximum Number | 追薪吧 
+- 白话LeetCode | 321. Create Maximum Number | 追薪吧 
     http://zhuixin8.com/2016/10/02/leetcode-321/
+- Create Maximum Number – AlgoBox by dietpepsi 
+    https://web.archive.org/web/20160120093629/http://algobox.org/create-maximum-number/
 - Share my greedy solution - LeetCode Discuss 
     https://leetcode.com/problems/create-maximum-number/discuss/77285/Share-my-greedy-solution/81245
 */
@@ -27,20 +29,19 @@ vector<int> maxSub(vector<int> nums, int kk) {
         }
         sub.push_back(nums[i]);
     }
+    sub.resize(kk);
+    // cout << "=" << sub.size() << "=";
     return sub;
 }
 
+
 vector<int> mergeSubs(vector<int> sub1, vector<int> sub2) {
     vector<int> merged = {};
-    while (!sub1.empty() && !sub2.empty()) {
-        vector<int>& p = sub1[0] > sub2[0] ? sub1 : sub2;
+    while (!sub1.empty() || !sub2.empty()) {
+        vector<int>& p = sub1 > sub2 ? sub1 : sub2;
         merged.push_back(p[0]);
         p.erase(p.begin());
     }
-
-    vector<int>& p = sub1.empty() ? sub2 : sub1;
-
-    merged.insert(merged.end(), p.begin(), p.end());
 
     return merged;
 }
@@ -51,19 +52,16 @@ vector<int> maxNumber(vector<int>& nums1, vector<int>& nums2, int k) {
     vector<int> maxVec={};
     int n1=nums1.size(), n2=nums2.size();
 
-    // for (int j=0; j<nums1.size(); ++j) {
-    //     cout << nums1[j] << "=";
-    // }
-    // cout << endl;
-
     for (int i=max(0,k-n2); i<=min(k,n1); ++i) {
         maxVec = max(maxVec, mergeSubs(maxSub(nums1,i), maxSub(nums2,k-i)));
+        // for (int j=0; j<maxVec.size(); ++j) {
+        //     cout << maxVec[j] << ">" ;
+        // }
+        // cout << endl;
     }
 
-    cout << "+" << maxVec.size() << "+" << endl;
     return maxVec;
 }
-
 
 
 string filename = "0321.txt";
@@ -85,7 +83,7 @@ int main() {
         getline(fp, rin, '\n');
 
         stringstream ss1(sin1);
-        stringstream ss2(sin1);
+        stringstream ss2(sin2);
         stringstream sr(rin);
 
         vector<int> vvi1 = {};
