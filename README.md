@@ -28,7 +28,8 @@ static const auto _ = []() {
 
 ## Input processing
 
-### Input form: int
+### In : int
+### Out: int
 
 ```
 n r(int)
@@ -94,7 +95,8 @@ int main() {
 ```
 
 
-### Input form: ints
+### In : vector<int>
+### Out: int
 
 ```
 data
@@ -173,8 +175,8 @@ int main() {
 }
 ```
 
-### In: vector<int> + int; Out: int
-
+### In : vector<int> + int
+### Out: int
 
 ```
 data
@@ -243,7 +245,8 @@ int main() {
 ```
 
 
-### In: vector<int> x 2 + int; Out: vector<int>
+### In : vector<int> x 2 + int
+### Out: vector<int>
 
 
 ```
@@ -336,8 +339,85 @@ int main() {
 }
 ```
 
+### In : int
+### Out: vector<int>
 
-### Input form: m x n int matrix
+
+```
+num
+r(vector)
+```
+
+`0388.txt`:
+
+```py
+2
+0 1 1
+5
+0 1 1 2 1 2
+```
+
+`0388.cpp`:
+
+```cpp
+vector<int> countBits(int num) {
+    return {};
+}
+
+string filename = "0338.txt";
+const auto& myFunc = countBits;
+
+int main() {
+    string nin, rin;
+    vector<int> vn;
+    vector<vector<int>> vr;
+
+    ifstream fp;
+    fp.open(filename);
+
+    int d;
+    while (getline(fp, nin, '\n')) {
+        getline(fp, rin, '\n');
+
+        stringstream sr(rin);
+
+        vn.push_back(stoi(nin.c_str(),NULL,10));
+
+        vector<int> vri = {};
+        while (sr >> d) vri.push_back(d);
+        vr.push_back(vri);
+    }
+    fp.close();
+
+    printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
+    printf("--- --- --- --- \n");
+    int correct_cnt=0;
+    for (int i=0; i<vr.size(); ++i) {
+        vector<int> res = myFunc(vn[i]);
+        bool is_correct = res==vr[i];
+        for (int j=0; j<vr[i].size(); ++j) {
+            cout << "-" << vr[i][j];
+        };
+        cout << endl;
+        for (int j=0; j<res.size(); ++j) {
+            cout << "-" << res[j];
+        };
+        cout << endl;
+
+        printf("%d\t%d\n", is_correct, 4*i+1);
+        if (is_correct) ++correct_cnt;
+    }
+    printf("--- --- --- --- \n");
+    printf("%d/%d\n", correct_cnt, vr.size());
+
+    return 0;
+}
+```
+
+
+
+### In : vector<vector<int>> (m x n)
+### Out: int
 
 ```
 m n r(int)
@@ -417,7 +497,8 @@ int main() {
 ```
 
 
-### Input form: m x n char matrix
+### In : vector<vector<char>> (m x n)
+### Out: int
 
 ```
 m n r(int)
@@ -454,7 +535,8 @@ int maximalRectangle(vector<vector<char>>& matrix) {
 ...
 ```
 
-### Input form: string
+### In : string
+### Out: int
 
 ```
 str
@@ -522,7 +604,8 @@ int main() {
 ```
 
 
-### Input form: strings
+### In : string x 2
+### Out: int
 
 ```
 str1 str2
@@ -594,7 +677,8 @@ int main() {
 ```
 
 
-### Input form: multi-line hybrid int & strings
+### In : multi-line hybrid int & strings
+### Out: bool
 
 ```
 str
