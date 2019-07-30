@@ -141,7 +141,6 @@ int main() {
     fp.open(filename);
 
     int d;
-    int c=0;
     while (getline(fp, sin, '\n')) {
         vs.push_back(sin);
         stringstream ss(sin);
@@ -155,7 +154,6 @@ int main() {
 
         getline(fp, rin, '\n');
         vr.push_back(stoi(rin.c_str(),NULL,10));
-        // ++c;printf("==%d==\n", c);
     }
     fp.close();
 
@@ -414,7 +412,76 @@ int main() {
 }
 ```
 
+### In : one-line int pairs (vector<vector<int>>)
+### Out: int
 
+```
+n11 n12  n21 n22  n31 n32  ...
+r(int)
+```
+
+`0354.txt`:
+
+```py
+5 4  6 4  6 7  2 3
+3
+4 4  9 4  2 8  1 6  4 7  9 10  5 1  3 9  7 3
+4
+```
+
+`0354.cpp`:
+
+```cpp
+int maxEnvelopes(vector<vector<int>>& envelopes) {
+    return 0;
+}
+
+string filename = "0354.txt";
+const auto& myFunc = maxEnvelopes;
+
+int main() {
+    string vin, rin;
+    vector<vector<vector<int>>> vv;
+    vector<int> vr;
+
+    ifstream fp;
+    fp.open(filename);
+
+    int d;
+    while (getline(fp, vin, '\n')) {
+        stringstream sv(vin);
+
+        vector<int> vvt = {};
+        while (sv>>d) {
+            vvt.push_back(d);
+        }
+
+        vector<vector<int>> vvi = {};
+        for (int i=0; i<vvt.size()/2; ++i) {
+            vvi.push_back({vvt[2*i],vvt[2*i+1]});
+        }
+        vv.push_back(vvi);
+
+        getline(fp, rin, '\n');
+        vr.push_back(stoi(rin.c_str(),NULL,10));
+    }
+    fp.close();
+
+    printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
+    printf("--- --- --- --- \n");
+    int correct_cnt=0;
+    for (int i=0; i<vr.size(); ++i) {
+        int res = myFunc(vv[i]);
+        bool is_correct = res==vr[i];
+        printf("%d\t%d\t%d\t%d\n", is_correct, 2*i+1, vr[i], res);
+        if (is_correct) ++correct_cnt;
+    }
+    printf("--- --- --- --- \n");
+    printf("%d/%d\n", correct_cnt, vr.size());
+
+    return 0;
+}
+```
 
 ### In : vector<vector<int>> (m x n)
 ### Out: int
@@ -437,7 +504,6 @@ data
 2 1 1 1
 1 2 2 1
 ```
-
 
 `0064.cpp`:
 
