@@ -520,7 +520,7 @@ const auto& myFunc = minPathSum;
 
 int main() {
     string sin;
-    int rr, row, col, weight;
+    int row, col, rr, ele;
     vector<vector<vector<int>>> vg={};
     vector<int> vr;
 
@@ -537,8 +537,8 @@ int main() {
             stringstream ss(sin);
             vg.back().push_back({});
             for (int j=0; j<col; ++j) {
-                ss >> weight;
-                vg.back()[i].push_back(weight);
+                ss >> ele;
+                vg.back()[i].push_back(ele);
             }
         }
     }
@@ -560,6 +560,7 @@ int main() {
     printf("%d/%d\n", correct_cnt, vr.size());
 
     return 0;
+}
 ```
 
 
