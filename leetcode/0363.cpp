@@ -1,6 +1,8 @@
 /*
 - LeetCode Queue类(363 621) 题解 - GTMer的专栏 - CSDN博客 
     https://blog.csdn.net/u013145967/article/details/79710044
+- 连续子数组最大和 - Treant - 博客园 
+    https://www.cnblogs.com/en-heng/p/3970231.html
 */
 
 #include <iostream>
