@@ -1,8 +1,16 @@
 /*
 - LeetCode Queue类(363 621) 题解 - GTMer的专栏 - CSDN博客 
     https://blog.csdn.net/u013145967/article/details/79710044
+- [leetcode] 363. Max Sum of Rectangle No Larger Than K 解题报告 - 小榕流光的专栏 - CSDN博客 
+    https://blog.csdn.net/qq508618087/article/details/51761270
+- Accepted C++ codes with explanation and references - LeetCode Discuss 
+    https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/discuss/83599/Accepted-C%2B%2B-codes-with-explanation-and-references
 - 连续子数组最大和 - Treant - 博客园 
     https://www.cnblogs.com/en-heng/p/3970231.html
+- Kadane’s Algorithm — (Dynamic Programming) — How and Why does it Work? 
+    https://medium.com/@rsinghal757/kadanes-algorithm-dynamic-programming-how-and-why-does-it-work-3fd8849ed73d
+- Given an array of integers A and an integer k, find a subarray that contains the largest sum, subject to a constraint that the sum is less than k? - Quora 
+    https://www.quora.com/Given-an-array-of-integers-A-and-an-integer-k-find-a-subarray-that-contains-the-largest-sum-subject-to-a-constraint-that-the-sum-is-less-than-k
 */
 
 #include <iostream>
@@ -17,38 +25,35 @@
 #include <math.h>
 #include <limits.h>
 #include <numeric>
+#include <set>
 
 using namespace std;
 
-int sumSubVec(vector<vector<int>> m, int li,int lj, int ri, int rj) {
-    int sum = 0;
-    for (int i=li; i<=ri; ++i) {
-        for (int j=lj; j<=rj; ++j) {
-            sum += m[i][j];
-        }
-    }
-    return sum;
-}
+int maxSumSubmatrix(vector<vector<int>>& matrix, int k) {
+    if (matrix.empty()) return 0;
+    int row = matrix.size(), col = matrix[0].size(), res = INT_MIN;
 
-int maxSumSubmatrix(vector<vector<int>>& m, int k) {
-    if (m.empty()) return 0;
-    int row = m.size(), col = m[0].size();
-
-    int roof=INT_MIN;
-    int tmp;
-    for (int li=0; li<row; ++li) {
-        for (int lj=0; lj<col; ++lj) {
-            for (int ri=li; ri<row; ++ri) {
-                for (int rj=lj; rj<col; ++rj) {
-                    tmp = sumSubVec(m,li,lj,ri,rj);
-                    if (tmp>roof && tmp<=k) {
-                        roof = tmp;
-                    }
-                }
+    for (int l = 0; l < col; ++l) {
+        vector<int> sums(row, 0);
+        for (int r = l; r < col; ++r) {
+            for (int i = 0; i < row; ++i) {
+                sums[i] += matrix[i][r];
             }
+            
+            // Find the max subarray no more than K
+            set<int> cumSet;
+            cumSet.insert(0);
+            int cum = 0, subMax = INT_MIN;
+            for (int sum : sums) {
+                cum += sum;
+                set<int>::iterator itr = cumSet.lower_bound(cum-k);
+                if (itr != cumSet.end()) subMax = std::max(subMax, cum-*itr);
+                cumSet.insert(cum);
+            }
+            res = std::max(res, subMax);
         }
     }
-    return roof;
+    return res;
 }
 
 
