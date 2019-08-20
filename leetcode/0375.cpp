@@ -25,29 +25,32 @@
 
 using namespace std;
 
-int dp(int l, int r){
+int dp(vector<vector<int>>& v,int l, int r){
+    if (v[l][r] != 0)
+        return v[l][r];
+
     if (r-l<=0)
-        return 0;
+        v[l][r]=0;
     else if (r-l==1)
-        return l;
+        v[l][r]=l;
     else if (r-l==2)
-        return l+1;
+        v[l][r] = l+1;
     else {
         int res=INT_MAX;
         int tmp;
         for (int i=l+1;i<=r-1;i++) {
-            tmp = i + max(dp(l,i-1),dp(i+1,r));
+            tmp = i + max(dp(v,l,i-1),dp(v,i+1,r));
             res = min(res,tmp);
         }
-        return res;
+        v[l][r] = res;
     }
+    return v[l][r];
 }
 
-// 100 400
-// 300 1640
-
 int getMoneyAmount(int n) {
-    return dp(1,n);
+    vector<vector<int>> v(n+1,vector<int>(n+1,0));
+    int res = dp(v,1,n);
+    return res;
 }
 
 
