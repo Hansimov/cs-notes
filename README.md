@@ -744,6 +744,67 @@ int main() {
 }
 ```
 
+### In : int + string x 2
+### Out: bool
+
+```
+r(int) str1 str2
+```
+
+`0392.txt`:
+
+```py
+1 abc ahbgdc
+0 axc ahbgdc
+```
+
+`0392.cpp`:
+
+```cpp
+bool isSubsequence(string s, string t) {
+    return false;
+}
+
+string filename = "0392.txt";
+const auto& myFunc = isSubsequence;
+
+int main() {
+    string sin,s1,s2;
+    int r;
+    vector<int> vr;
+    vector<string> vs1, vs2;
+
+    ifstream fp;
+    fp.open(filename);
+
+    while (getline(fp, sin, '\n')) {
+        stringstream ss(sin);
+        ss >> r >> s1 >> s2;
+        vr.push_back(r);
+        vs1.push_back(s1);
+        vs2.push_back(s2);
+    }
+    fp.close();
+
+    printf("--- --- --- --- \n");
+    printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
+    printf("--- --- --- --- \n");
+    int correct_cnt=0;
+    int line=1;
+    for (int i=0; i<vr.size(); ++i) {
+        int res = myFunc(vs1[i], vs2[i]);
+        bool is_correct = ((int)res==vr[i]);
+        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        if (is_correct) ++correct_cnt;
+        line += 1;
+    }
+    printf("--- --- --- --- \n");
+    printf("%d/%d\n", correct_cnt, vr.size());
+
+    return 0;
+}
+```
+
 
 ### In : multi-line hybrid int & strings
 ### Out: bool
