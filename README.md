@@ -90,7 +90,7 @@ int main() {
         line += 1;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
@@ -169,7 +169,7 @@ int main() {
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
@@ -238,7 +238,7 @@ int main() {
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
@@ -333,7 +333,7 @@ int main() {
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
@@ -408,7 +408,7 @@ int main() {
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
@@ -479,7 +479,7 @@ int main() {
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
@@ -559,7 +559,7 @@ int main() {
         line += vg[i].size()+1;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
@@ -739,7 +739,7 @@ int main() {
         line += 1;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
@@ -800,7 +800,7 @@ int main() {
         line += 1;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
@@ -881,7 +881,7 @@ int main() {
         line += 1;
     }
     printf("--- --- --- --- \n");
-    printf("%d/%d\n", correct_cnt, vr.size());
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }
