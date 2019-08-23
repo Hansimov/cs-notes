@@ -1,4 +1,6 @@
 /*
+- Clear Explanation: 8ms Binary Search Java - LeetCode Discuss 
+    https://leetcode.com/problems/split-array-largest-sum/discuss/89817/Clear-Explanation%3A-8ms-Binary-Search-Java
 - Java easy binary search solution 8ms - LeetCode Discuss 
     https://leetcode.com/problems/split-array-largest-sum/discuss/89835/Java-easy-binary-search-solution-8ms
 */
@@ -13,6 +15,7 @@
 #include <stack>
 #include <set>
 #include <algorithm>
+#include <numeric>
 #include <math.h>
 #include <limits.h>
 
@@ -21,8 +24,40 @@ using namespace std;
 int splitArray(vector<int>& nums, int m) {
     if (nums.size()==0) return 0;
 
-    
-    return 0;
+    long max = *max_element(nums.begin(),nums.end());
+    if (nums.size()==m) return max;
+
+    long sum = 0;
+    for (long num:nums) sum += num;
+
+    long low = max;
+    long high = sum;
+    long mid = 0;
+
+    while (low<high) {
+        mid = (low+high)/2;
+        long cum = 0;
+        int cnt = 1;
+        bool isValid = true;
+        for (long num:nums) {
+            cum += num;
+            if (cum > mid) {
+                cum = num;
+                cnt++;
+                if (cnt > m) {
+                    isValid = false;
+                    break;
+                }
+            }
+        }
+        if (isValid) {
+            high = mid;
+        } else {
+            low = mid + 1;
+        }
+    }
+
+    return high;
 }
 
 string filename = "0410.txt";

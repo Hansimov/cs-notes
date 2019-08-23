@@ -11,6 +11,7 @@
 #include <stack>
 #include <set>
 #include <algorithm>
+#include <numeric>
 #include <math.h>
 #include <limits.h>
 
