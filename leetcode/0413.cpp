@@ -16,36 +16,18 @@ using namespace std;
 
 int numberOfArithmeticSlices(vector<int>& A) {
     int n = A.size();
-    if (n<=2) return 0;
-    vector<int> diffs(A.size()-1,0);
-    for (int i=0; i<n-1; ++i) {
-        diffs[i] = A[i+1] - A[i];
-    }
+    if (n==0) return 0;
 
-    vector<int> nums = {};
-    int prev = diffs[0];
-    int cnt = 1;
-    for (int i=1; i<diffs.size(); ++i) {
-        if (diffs[i]==prev) {
-            cnt++;
-            if (i==n-2) {
-                nums.push_back(cnt);
-            }
-        } else {
-            if (cnt>=2) {
-                nums.push_back(cnt);
-            }
-            cnt = 1;
-            prev = diffs[i];
+    vector<int> dp(n,0);
+    // dp[i]: number of arithmetic slices ending with A[i]
+    int sum=0;
+    for(int i=2;i<n;i++) {
+        if(A[i]-A[i-1]==A[i-1]-A[i-2]) {
+            dp[i]=1+dp[i-1];
+            sum+=dp[i];
         }
     }
-
-    int res = 0;
-    for (int num:nums) {
-        res += num*(num-1)/2;
-    }
-
-    return res;
+    return sum;
 }
 
 string filename = "0413.txt";
