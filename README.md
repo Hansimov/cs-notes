@@ -10,6 +10,7 @@
 #include <vector>
 #include <stack>
 #include <set>
+#include <bitset>
 #include <algorithm>
 #include <numeric>
 #include <math.h>
