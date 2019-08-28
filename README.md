@@ -99,6 +99,68 @@ int main() {
 }
 ```
 
+### In : int x 2
+### Out: bool
+
+```
+r   n   t
+```
+
+`0464.txt`
+
+```py
+0   10  11
+0   5   100
+0   20  100
+1   20  20
+```
+
+`0464.cpp`:
+
+```cpp
+bool canIWin(int maxChoosableInteger, int desiredTotal) {
+    return false;
+}
+
+string filename = "0464.txt";
+const auto& myFunc = canIWin;
+
+int main() {
+    string sin;
+    int r, n, t;
+    vector<int> vr, vn, vt;
+
+    ifstream fp;
+    fp.open(filename);
+
+    while (getline(fp, sin, '\n')) {
+        stringstream ss(sin);
+        ss >> r >> n >> t;
+        vr.push_back(r);
+        vn.push_back(n);
+        vt.push_back(t);
+    }
+    fp.close();
+
+    printf("--- --- --- --- \n");
+    printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
+    printf("--- --- --- --- \n");
+    int correct_cnt=0;
+    int line=1;
+    for (int i=0; i<vr.size(); ++i) {
+        bool res = myFunc(vn[i],vt[i]);
+        bool is_correct = (int)res==vr[i];
+        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        if (is_correct) ++correct_cnt;
+        line += 1;
+    }
+    printf("--- --- --- --- \n");
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
+
+    return 0;
+}
+```
+
 
 ### In : vector<int>
 ### Out: int
