@@ -872,6 +872,77 @@ int main() {
 ```
 
 
+### In : (string + int) x 2
+### Out: int
+
+```
+s1  n1  s2  n2
+r(int)
+```
+
+`0466.txt`:
+
+```py
+acb     4   ab  2
+2
+acbacb  5   ac  2
+5
+```
+
+`0466.cpp`:
+
+
+```cpp
+int getMaxRepetitions(string s1, int n1, string s2, int n2) {
+    return 0;
+}
+
+string filename = "0466.txt";
+const auto& myFunc = getMaxRepetitions;
+
+int main() {
+    string sin, rin, s1, s2;
+    int n1, n2, r;
+    vector<int> vr;
+    vector<string> vs1, vs2;
+    vector<int> vn1, vn2;
+
+    ifstream fp;
+    fp.open(filename);
+
+    while (getline(fp, sin, '\n')) {
+        stringstream ss(sin);
+        ss >> s1 >> n1 >> s2 >> n2;
+        vs1.push_back(s1);
+        vs2.push_back(s2);
+        vn1.push_back(n1);
+        vn2.push_back(n2);
+
+        getline(fp, rin, '\n');
+        stringstream sr(rin);
+        sr >> r;
+        vr.push_back(r);
+    }
+    fp.close();
+
+    printf("--- --- --- --- \n");
+    printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
+    printf("--- --- --- --- \n");
+    int correct_cnt=0;
+    int line=1;
+    for (int i=0; i<vr.size(); ++i) {
+        int res = myFunc(vs1[i], vn1[i], vs2[i], vn2[i]);
+        bool is_correct = res==vr[i];
+        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        if (is_correct) ++correct_cnt;
+        line += 1;
+    }
+    printf("--- --- --- --- \n");
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
+
+    return 0;
+}
+```
 ### In : multi-line hybrid int & strings
 ### Out: bool
 

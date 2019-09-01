@@ -1,0 +1,12 @@
+acb     4   ab  2
+2
+acbacb  5   ac  2
+5
+acbacb  11  acb 3
+7
+aabb    7   aba 2
+3
+aaa     3   aa  1
+4
+abacb   6   bcaa 1
+3
