@@ -732,6 +732,8 @@ int main() {
         if (is_correct) ++correct_cnt;
         line += 2;
     }
+    printf("--- --- --- --- \n");
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
 
     return 0;
 }

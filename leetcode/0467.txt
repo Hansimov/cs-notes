@@ -1,0 +1,12 @@
+a
+1
+cac
+2
+zab
+6
+abcd
+10
+cabcdc
+10
+zabczabcddefghijklmnopqrstuvwxyzabcd
+377
