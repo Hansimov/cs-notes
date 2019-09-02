@@ -1,12 +1,12 @@
 /*
-= Count The Repetitions - LeetCode Articles 
-    https://leetcode.com/articles/count-the-repetitions/
-= 【Leetcode】466. Count The Repetitions 统计重复个数 - lemonmillie的博客 - CSDN博客 
+= cnt The Repetitions - LeetCode Articles 
+    https://leetcode.com/articles/cnt-the-repetitions/
+= 【Leetcode】466. cnt The Repetitions 统计重复个数 - lemonmillie的博客 - CSDN博客 
     https://blog.csdn.net/lemonmillie/article/details/86701249
 = Accepted 8ms Java solution with explanation - LeetCode Discuss 
-    https://leetcode.com/problems/count-the-repetitions/discuss/95426/Accepted-8ms-Java-solution-with-explanation
+    https://leetcode.com/problems/cnt-the-repetitions/discuss/95426/Accepted-8ms-Java-solution-with-explanation
 = C++ solution inspired by @70664914 with organized explanation - LeetCode Discuss 
-    https://leetcode.com/problems/count-the-repetitions/discuss/95398/C%2B%2B-solution-inspired-by-%4070664914-with-organized-explanation
+    https://leetcode.com/problems/cnt-the-repetitions/discuss/95398/C%2B%2B-solution-inspired-by-%4070664914-with-organized-explanation
 */
 
 #include <iostream>
@@ -29,14 +29,31 @@
 using namespace std;
 
 int getMaxRepetitions(string s1, int n1, string s2, int n2) {
-    
-    string t1, t2;
-    for (int i=0; i<n1; ++i) t1 += s1;
-    for (int i=0; i<n2; ++i) t2 += s2;
-
-
-
-    return 0;
+    if (n1 == 0) return 0;
+    int idxs[s2.size()+1] = {0}; // idx at start of each s1 block
+    int cnts[s2.size()+1] = {0}; // cnt of repititions till current s1 block
+    int idx = 0, cnt = 0;
+    for (int i = 0; i < n1; i++) {
+        for (int j = 0; j < s1.size(); j++) {
+            if (s1[j] == s2[idx])
+                ++idx;
+            if (idx == s2.size()) {
+                idx = 0;
+                ++cnt;
+            }
+        }
+        cnts[i] = cnt;
+        idxs[i] = idx;
+        for (int k = 0; k < i; k++) {
+            if (idxs[k] == idxs[i]) {
+                int prev_cnt = cnts[k];
+                int pattern_cnt = (cnts[i] - cnts[k]) * ((n1-1-k) / (i-k));
+                int remain_cnt = cnts[k + (n1-1-k) % (i-k)] - cnts[k];
+                return (prev_cnt + pattern_cnt + remain_cnt) / n2;
+            }
+        }
+    }
+    return cnts[n1-1] / n2;
 }
 
 string filename = "0466.txt";

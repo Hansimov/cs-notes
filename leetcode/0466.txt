@@ -8,5 +8,15 @@ aabb    7   aba 2
 3
 aaa     3   aa  1
 4
-abacb   6   bcaa 1
+abacb   6   bcaa    1
 3
+aaa     20  aaaaa   1
+12
+abcd    100 adbc    2
+25
+abcd    100 adbcc   2
+16
+abcda   100 adbcc   2
+16
+abc     999 bcd     100
+0
