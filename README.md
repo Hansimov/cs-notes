@@ -309,6 +309,82 @@ int main() {
 }
 ```
 
+### In : vector<int> x 2
+### Out: double
+
+```
+a1 a2 a3 ...
+b1 b2 b3 ...
+r(double)
+```
+
+`0004.txt`:
+
+```py
+1 2 3 6 7 10
+2 3 4 7 9
+4.0
+```
+
+`0004.cpp`:
+
+
+```cpp
+double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+    
+    return 0.0;
+}
+
+string filename = "0004.txt";
+const auto& myFunc = findMedianSortedArrays;
+
+int main() {
+    string sin1, sin2, rin;
+    vector<vector<int>> vv1, vv2;
+    vector<double> vr;
+
+    ifstream fp;
+    fp.open(filename);
+
+    int d;
+    while (getline(fp, sin1, '\n')) {
+        getline(fp,sin2,'\n');
+
+        stringstream ss1(sin1);
+        stringstream ss2(sin2);
+
+        vector<int> vvi1 = {};
+        vector<int> vvi2 = {};
+
+        while (ss1 >> d) vvi1.push_back(d);
+        while (ss2 >> d) vvi2.push_back(d);
+
+        vv1.push_back(vvi1);
+        vv2.push_back(vvi2);
+
+        getline(fp, rin, '\n');
+        stringstream sr(rin);
+        double d;
+        sr >> d;
+        vr.push_back(d);
+    }
+    fp.close();
+
+    printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
+    printf("--- --- --- --- \n");
+    int correct_cnt=0;
+    for (int i=0; i<vr.size(); ++i) {
+        double res = myFunc(vv1[i],vv2[i]);
+        bool is_correct = res==vr[i];
+        printf("%d\t%d\t%.1f\t%.1f\n", is_correct, 2*i+1, vr[i], res);
+        if (is_correct) ++correct_cnt;
+    }
+    printf("--- --- --- --- \n");
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
+
+    return 0;
+}
+```
 
 ### In : vector<int> x 2 + int
 ### Out: vector<int>
