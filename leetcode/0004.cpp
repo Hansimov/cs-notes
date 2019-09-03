@@ -1,3 +1,7 @@
+/*
+= Very concise O(log(min(M,N))) iterative solution with detailed explanation - LeetCode Discuss 
+    https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2471/Very-concise-O(log(min(MN)))-iterative-solution-with-detailed-explanation
+*/
 #include <iostream>
 #include <fstream>
 #include <sstream>
