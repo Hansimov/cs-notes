@@ -88,7 +88,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         int res = myFunc(vn[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", line, vr[i], res);
         if (is_correct) ++correct_cnt;
         line += 1;
     }
@@ -150,7 +150,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         bool res = myFunc(vn[i],vt[i]);
         bool is_correct = (int)res==vr[i];
-        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", line, vr[i], res);
         if (is_correct) ++correct_cnt;
         line += 1;
     }
@@ -230,7 +230,7 @@ int main() {
     for (int i=0; i<vs.size(); ++i) {
         int res = myFunc(vn[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\n", is_correct, 2*i+1, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", 2*i+1, vr[i], res);
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
@@ -299,7 +299,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         int res = myFunc(vv[i],vn[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\n", is_correct, 2*i+1, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", 2*i+1, vr[i], res);
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
@@ -376,7 +376,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         double res = myFunc(vv1[i],vv2[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%.1f\t%.1f\n", is_correct, 2*i+1, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", 2*i+1, vr[i], res);
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
@@ -461,7 +461,7 @@ int main() {
         };
         cout << endl;
 
-        printf("%d\t%d\n", is_correct, 4*i+1);
+        printf("%s\t%d\n", is_correct?" ":"x",, 4*i+1);
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
@@ -555,7 +555,7 @@ int main() {
         };
         cout << endl;
 
-        printf("%d\t%d\n", is_correct, 4*i+1);
+        printf("%s\t%d\n", is_correct?" ":"x",, 4*i+1);
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
@@ -630,7 +630,7 @@ int main() {
         };
         cout << endl;
 
-        printf("%d\t%d\n", is_correct, 4*i+1);
+        printf("%s\t%d\n", is_correct?" ":"x",, 4*i+1);
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
@@ -701,7 +701,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         int res = myFunc(vv[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\n", is_correct, 2*i+1, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", 2*i+1, vr[i], res);
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
@@ -780,7 +780,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         int res = myFunc(vg[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", line, vr[i], res);
         if (is_correct) ++correct_cnt;
         line += vg[i].size()+1;
     }
@@ -889,7 +889,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         int res = myFunc(vs1[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", line, vr[i], res);
         if (is_correct) ++correct_cnt;
         line += 2;
     }
@@ -962,7 +962,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         int res = myFunc(vs1[i], vs2[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", line, vr[i], res);
         if (is_correct) ++correct_cnt;
         line += 1;
     }
@@ -1023,7 +1023,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         int res = myFunc(vs1[i], vs2[i]);
         bool is_correct = ((int)res==vr[i]);
-        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", line, vr[i], res);
         if (is_correct) ++correct_cnt;
         line += 1;
     }
@@ -1096,7 +1096,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         int res = myFunc(vs1[i], vn1[i], vs2[i], vn2[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", line, vr[i], res);
         if (is_correct) ++correct_cnt;
         line += 1;
     }
@@ -1175,7 +1175,7 @@ int main() {
     for (int i=0; i<vr.size(); ++i) {
         bool res = myFunc(vs[i], vw[i]);
         bool is_correct = res==vr[i];
-        printf("%d\t%d\t%d\t%d\t\n", is_correct, line, vr[i], res);
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", line, vr[i], res);
         if (is_correct) ++correct_cnt;
         line += 1;
     }
