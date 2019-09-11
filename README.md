@@ -386,9 +386,94 @@ int main() {
 }
 ```
 
-### In : vector<int> x 2 + int
+### In : vector<int> + int
 ### Out: vector<int>
 
+```
+vector
+n(int)
+r(vector)
+```
+
+`0034.txt`:
+
+```py
+5 7 7 8 8 10
+8
+3 4
+5 7 7 8 8 10
+6
+-1 -1
+```
+
+`0034.cpp`:
+
+```cpp
+vector<int> searchRange(vector<int>& nums, int target) {
+    vector<int> dp(2,0);
+    return dp;
+}
+
+string filename = "0034.txt";
+const auto& myFunc = searchRange;
+
+int main() {
+    string sin1, nin, rin;
+    vector<vector<int>> vv1;
+    vector<int> vn;
+    vector<vector<int>> vr;
+
+    ifstream fp;
+    fp.open(filename);
+
+    int d;
+    while (getline(fp, sin1, '\n')) {
+        getline(fp, nin, '\n');
+        getline(fp, rin, '\n');
+
+        stringstream ss1(sin1);
+        stringstream sr(rin);
+
+        vector<int> vvi1 = {};
+        vector<int> vri = {};
+
+        while (ss1 >> d) vvi1.push_back(d);
+        while (sr >> d) vri.push_back(d);
+        vv1.push_back(vvi1);
+        vr.push_back(vri);
+
+        vn.push_back(stoi(nin.c_str(),NULL,10));
+    }
+    fp.close();
+
+    printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
+    printf("--- --- --- --- \n");
+    int correct_cnt=0;
+    for (int i=0; i<vr.size(); ++i) {
+        vector<int> res = myFunc(vv1[i],vn[i]);
+        bool is_correct = res==vr[i];
+        for (int j=0; j<vr[i].size(); ++j) {
+            cout << "=" << vr[i][j];
+        };
+        cout << endl;
+        for (int j=0; j<res.size(); ++j) {
+            cout << "=" << res[j];
+        };
+        cout << endl;
+
+        printf("%d\t%d\n", is_correct, 4*i+1);
+        if (is_correct) ++correct_cnt;
+    }
+    printf("--- --- --- --- \n");
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
+
+    return 0;
+}
+```
+
+
+### In : vector<int> x 2 + int
+### Out: vector<int>
 
 ```
 vector1
