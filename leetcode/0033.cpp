@@ -1,3 +1,7 @@
+/*
+= Concise O(log N) Binary search solution - LeetCode Discuss 
+    https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/14425/Concise-O(log-N)-Binary-search-solution
+*/
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -18,11 +22,33 @@
 using namespace std;
 
 int searchInRotatedSortedArray(vector<int>& nums, int target) {
-    
-    return 0;
+    int n = nums.size();
+    if (n==0) return -1;
+
+    int lo=0,hi=n-1;
+    while (lo<hi) {
+        int mid = (lo+hi)/2;
+        if (nums[mid] > nums[hi])
+            lo = mid+1;
+        else
+            hi = mid;
+    }
+    int off=lo;
+    lo=0,hi=n-1;
+    while (lo<=hi) {
+        int mid = (lo+hi)/2;
+        int realmid = (mid+off)%n;
+        if (nums[realmid]==target)
+            return realmid;
+        else if (nums[realmid]<target)
+            lo = mid + 1;
+        else
+            hi = mid - 1;
+    }
+    return -1;
 }
 
-string filename = "0039.txt";
+string filename = "0033.txt";
 const auto& myFunc = searchInRotatedSortedArray;
 
 int main() {
