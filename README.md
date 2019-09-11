@@ -830,6 +830,85 @@ int maximalRectangle(vector<vector<char>>& matrix) {
 ...
 ```
 
+### In : vector<vector<int>> (m x n) + int
+### Out: bool
+
+```
+m n t(int) r(int)
+data
+```
+
+`0074.txt`:
+
+```py
+3 4  3  1
+1 3 5 7
+10 11 16 20
+23 30 34 50
+3 4  13  0
+1 3  5 7
+10 11 16 20
+23 30 34 50
+```
+
+`0074.cpp`:
+
+```cpp
+bool searchMatrix(vector<vector<int>>& matrix, int target) {
+    
+    return false;
+}
+
+string filename = "0074.txt";
+const auto& myFunc = searchMatrix;
+
+int main() {
+    string sin;
+    int row, col, tt, rr, ele;
+    vector<vector<vector<int>>> vg={};
+    vector<int> vt;
+    vector<int> vr;
+
+    ifstream fp;
+    fp.open(filename);
+
+    while (getline(fp, sin, '\n')) {
+        stringstream ss(sin);
+        ss >> row >> col >> tt >> rr;
+        vr.push_back(rr);
+        vt.push_back(tt);
+        vg.push_back({});
+        for (int i=0; i<row; ++i) {
+            getline(fp, sin, '\n');
+            stringstream ss(sin);
+            vg.back().push_back({});
+            for (int j=0; j<col; ++j) {
+                ss >> ele;
+                vg.back()[i].push_back(ele);
+            }
+        }
+    }
+    fp.close();
+
+    printf("--- --- --- --- \n");
+    printf("%s\t%s\t%s\t%s\n", "T","L", "√", "?");
+    printf("--- --- --- --- \n");
+    int correct_cnt=0;
+    int line=1;
+    for (int i=0; i<vr.size(); ++i) {
+        bool res = myFunc(vg[i],vt[i]);
+        bool is_correct = (res?1:0)==vr[i];
+        printf("%s\t%d\t%d\t%d\n", is_correct?" ":"x", line, vr[i], res);
+        if (is_correct) ++correct_cnt;
+        line += vg[i].size()+1;
+    }
+    printf("--- --- --- --- \n");
+    printf("%s\t%d/%d\n", correct_cnt==vr.size()?"√":"×",correct_cnt, vr.size());
+
+    return 0;
+}
+```
+
 ### In : string
 ### Out: int
 
