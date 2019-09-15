@@ -2,6 +2,8 @@
 = My 8ms C++ solution (o(logn) on average, o(n) worst case) - LeetCode Discuss 
     https://leetcode.com/problems/search-in-rotated-sorted-array-ii/discuss/28218/My-8ms-C%2B%2B-solution-(o(logn)-on-average-o(n)-worst-case)
     https://leetcode.com/problems/search-in-rotated-sorted-array-ii/discuss/28218/My-8ms-C++-solution-(o(logn)-on-average-o(n)-worst-case)/112460
+= leetcode 81 - TempterCyn的博客 - CSDN博客 
+    https://blog.csdn.net/TempterCyn/article/details/84728538
 */
 
 #include <iostream>
@@ -23,34 +25,54 @@
 
 using namespace std;
 
-bool searchInRotatedSortedArray(vector<int>& A, int t) {
-    if (A.empty()) 
-        return false;
-    
-    int l = 0, r = A.size() - 1;
-    
-    while (l < r) {
-        int m = l + (r - l) / 2;    
-        if (A[m] == t) return true;
-        if (A[l] < A[m]) {
-            if (A[l] <= t && t < A[m]) {
-                r = m - 1;
-            } else {
-                l = m + 1;
+bool searchInRotatedSortedArray(vector<int>& v, int t) {
+    int n = v.size();
+    if (v.size() == 0) return false;
+
+    int l=0, r=n-1, m;
+
+    while (l<r) {
+        m = l+(r-l)/2;
+        if (v[m] == t) return true;
+        if (v[l]<v[m]) {
+            if (v[m]<=v[r]) {
+                if (v[l]<=t && v[m]>t)
+                    r = m-1;
+                else if (v[m]<t && v[r]>=t)
+                    l = m+1;
+                else
+                    return false;
+            } else { // v[m]>v[r], then there must be v[l]>=v[r]
+                if (v[l]<=t && v[m]>t)
+                    r = m-1;
+                else
+                    l = m+1;
             }
-        } else if (A[m] < A[r]) {
-            if (A[m] < t && t <= A[r]) {
-                l = m + 1;
-            } else {
-                r = m - 1;
+        } else if (v[l]>v[m]) { // then there must be v[m]<=v[r] && v[l]>=v[r]
+            if (t<v[l] && t>v[r])
+                return false;
+            else if (t<=v[r] && t>v[m])
+                l = m+1;
+            else
+                r = m-1;
+        } else { // v[l]==v[m]
+            if (v[m]==v[r]) {
+                l++; r--;
+            } else if (v[m]<v[r]) {
+                if (t>v[m] && t<=v[r]) 
+                    l = m+1;
+                else
+                    r = m-1;
+            } else { // v[m]>v[r]
+                if (t<v[m] && t>v[r])
+                    return false;
+                else
+                    l = m+1;
             }
-        } else {
-            while (A[l] == A[m]) l++;
-            while (A[m] == A[r]) r--;
         }
     }
-    
-    return A[l] == t? true : false;
+
+    return v[l]==t?true:false;
 }
 
 
