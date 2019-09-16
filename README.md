@@ -461,7 +461,7 @@ int main() {
         };
         cout << endl;
 
-        printf("%s\t%d\n", is_correct?" ":"x",, 4*i+1);
+        printf("%s\t%d\n", is_correct?" ":"x", 4*i+1);
         if (is_correct) ++correct_cnt;
     }
     printf("--- --- --- --- \n");
