@@ -1,3 +1,9 @@
+/*
+= [LeetCode]Find the Duplicate Number | 书影博客 
+    http://bookshadow.com/weblog/2015/09/28/leetcode-find-duplicate-number/
+= Two Solutions (with explanation): O(nlog(n)) and O(n) time , O(1) space, without changing the input array - LeetCode Discuss 
+    https://leetcode.com/problems/find-the-duplicate-number/discuss/72844/Two-Solutions-(with-explanation)%3A-O(nlog(n))-and-O(n)-time-O(1)-space-without-changing-the-input-array
+*/
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -18,8 +24,24 @@
 using namespace std;
 
 int findDuplicate(vector<int>& nums) {
-    
-    return 0;
+    int n = nums.size()-1;
+    int l=1, r=n, mid;
+    int cnt;
+
+    while (l<=r){
+        mid = l+(r-l)/2;
+        cnt = 0;
+        for (auto num : nums) {
+            if (num<=mid)
+                ++cnt;
+        }
+        if (cnt>mid)
+            r = mid-1;
+        else
+            l = mid+1;
+    }
+
+    return l;
 }
 
 string filename = "0287.txt";
