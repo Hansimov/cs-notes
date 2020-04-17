@@ -23,7 +23,7 @@ class Solution {
 public:
     int kthSmallest(TreeNode* root, int& k) {
         if (root==NULL)
-            return ;
+            return 0;
 
         int num = kthSmallest(root->left,k);
         if (k==0) {
