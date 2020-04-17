@@ -1,3 +1,12 @@
+### Good References
+
+* labuladong的算法小抄
+  * https://labuladong.gitbook.io/algo/
+
+* LeetCode 刷题总结系列 - 舞动的心 - 博客园 
+  * https://www.cnblogs.com/liuzhen1995/category/1533797.html
+
+
 ### Commonly used libraries
 
 ```cpp
