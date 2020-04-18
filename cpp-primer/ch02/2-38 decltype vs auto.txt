@@ -1,0 +1,27 @@
+* 论decltype和auto的区别 - LyndonMario - 博客园 
+** https://www.cnblogs.com/LyndonMario/p/8978644.html
+
+1. auto 引用变量赋给变量后，类型为引用的变量的类型；
+   decltype 为引用类型。
+
+   int i=3, &r=i;
+
+   auto a = i;          // a: int
+   decltype(i) b = i;   // b: int
+
+   auto c = r;          // c: int
+   decltype(r) d - r;   // d: int &
+
+2. auto 忽略顶层const，保留底层const；
+   decltype 返回变量的完整类型（包括顶层const和引用）。
+
+   int i = 3;
+   const int ci = i, &cr = ci;
+
+   auto a = ci;     // a: int
+   auto b = cr;     // b: int
+   auto c = &i;     // c: pointer to int
+   auto d = &ci;    // d: pointer to const int
+
+   decltype(ci) x = 0;  // x: const int
+   decltype(cr) y = x;  // y: const int &
