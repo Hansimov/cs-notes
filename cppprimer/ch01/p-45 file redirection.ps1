@@ -1,1 +1,0 @@
-(Get-Content ".\p-45 input.txt") | & ".\p-45 two same scale items.exe" > ".\p-45 output.txt"
