@@ -1,0 +1,1 @@
+Get-Content ".\2-42 input data.txt" | & ".\2-42 use sales data header.exe"
