@@ -1,0 +1,1 @@
+Get-Content ".\5-14 input.txt" | & ".\5-14 count word.exe"

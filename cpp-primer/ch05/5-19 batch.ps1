@@ -1,0 +1,1 @@
+Get-Content ".\5-19 input.txt" | & ".\5-19 do while.exe"

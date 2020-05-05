@@ -1,0 +1,1 @@
+Get-Content ".\5-25 input.txt" | & ".\5-25 try except.exe"

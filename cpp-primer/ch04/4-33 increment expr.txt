@@ -1,0 +1,19 @@
+val ? ++x, ++y : --x, --y
+=> ((val ? ++x, ++y) : --x), --y
+
+if (val==true) {
+    ++x;
+    ++y;
+} else {
+    --x;
+}
+--y;
+
+if (val==true) {
+    ++x;
+} else {
+    --x;
+    --y;
+}
+
+=> val ? (++x, y) : (--x, --y)
