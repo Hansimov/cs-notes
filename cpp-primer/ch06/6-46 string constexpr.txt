@@ -1,0 +1,5 @@
+* 6.46的答案不对吧？ · Issue #22 · ReadingLab/Discussion-for-Cpp 
+** https://github.com/ReadingLab/Discussion-for-Cpp/issues/22
+
+* Understanding constexpr specifier in C++ - GeeksforGeeks 
+** https://www.geeksforgeeks.org/understanding-constexper-specifier-in-c/

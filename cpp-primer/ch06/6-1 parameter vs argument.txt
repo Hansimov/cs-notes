@@ -1,0 +1,12 @@
+parameter：形参（formal parameter）
+argument ：实参（actual parameter）
+
+口诀：
+    Arguments are Actual.
+    You define parameters, and you make arguments.
+
+形参是定义在函数参数列表中的局部变量，调用函数时由实参初始化。
+形参变量仅在函数被调用时才分配内存，调用结束后立即释放内存，因此形参变量仅在函数内部有效。
+
+* language agnostic - What's the difference between an argument and a parameter? - Stack Overflow 
+** https://stackoverflow.com/questions/156767/whats-the-difference-between-an-argument-and-a-parameter

@@ -13,7 +13,7 @@ int main() {
         try {
             cout << static_cast<float>(a)/b << endl;
             if (b==0) {
-                throw runtime_error("divisor cannot be 0!");
+                throw runtime_error("divisor cannot be 0!\n");
             }
         } catch (runtime_error err) {
             cout << err.what();
