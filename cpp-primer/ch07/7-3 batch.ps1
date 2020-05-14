@@ -1,0 +1,1 @@
+Get-Content ".\7-3 input.txt" | & ".\7-3 sales data new.exe"
