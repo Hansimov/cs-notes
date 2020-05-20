@@ -1,0 +1,19 @@
+聚合类：
+1. 所有成员都是 public 的
+2. 没有自定义构造函数
+3. 没有类内初始化
+4. 没有基类和虚函数
+
+为什么用聚合类：
+可以直接访问成员并将其初始化，用起来较为方便。
+
+聚合类的限制：
+1. 数据成员都是公有的。私有数据成员不能用花括号赋值。
+2. 维护麻烦。删除或添加成员必须更新所有初始化语句。
+3. 潜在错误。没有或错误地对聚合类成员赋值。
+
+* c++ - What are aggregate classes for? - Stack Overflow 
+** https://stackoverflow.com/questions/31232288/what-are-aggregate-classes-for/31232583
+
+* 聚合类：可以括号初始化的类型_c/c++_Fishfishfishfishcat-CSDN博客 
+** https://blog.csdn.net/weixin_39258979/article/details/90152038
