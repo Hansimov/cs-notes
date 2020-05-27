@@ -1,0 +1,2 @@
+list 不是连续存储
+array 有固定 size，不能添加元素（自然也就没有用 capacity 的必要）
