@@ -21,9 +21,9 @@ link_cn_bd = "https://leetcode-cn.com{}/solution"
 tr_L = re.findall(r"<tr[\s\S]*?</tr>", text)
 # print(len(tr_L))
 
-md_head = "编号 | 题目 | 通过率 / 难度\n"
-md_sep  = "---|---|---\n"
-md_line_bd = "{} |[中文版]({}) / [{}]({}) | {}% / {}\n"
+md_head = "编号 | 中文 | 题目 | 通过率 / 难度\n"
+md_sep  = "---|---|---|---\n"
+md_line_bd = "{} | [中文]({}) | [{}]({}) | {}% / {}\n"
 md_str = md_head + md_sep
 with open(out_fname, "w") as wf:
     for tr in tr_L[:]:
