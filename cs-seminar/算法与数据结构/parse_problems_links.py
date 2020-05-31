@@ -55,8 +55,8 @@ row_cn_L = sorted(row_cn_L, key=lambda l:l[0])
 
 
 md_head = "编号 | 题目 | 通过率 / 难度\n"
-md_sep  = "---|---|---|---\n"
-md_line_bd = "{} | {} [{}]({})<br> {} [{}]({}) | {}% / {}\n"
+md_sep  = "---:|---|---\n"
+md_line_bd = "{} {} | [{}]({})<br>[{}]({}) | {}% / {}\n"
 md_str = md_head + md_sep
 
 for i in range(len(row_en_L)):
@@ -66,7 +66,7 @@ for i in range(len(row_en_L)):
         idx_str = "{}<br>{}".format(idx_en, idx_cn)
     else:
         idx_str = str(idx_en)
-    md_str += md_line_bd.format(idx_str,  lock_en, title_en, link_en,  lock_cn, title_cn, link_cn,  acceptance_en, difficulty_en)
+    md_str += md_line_bd.format(idx_str, lock_en, title_en, link_en, title_cn, link_cn,  acceptance_en, difficulty_en)
 
 with open(out_fname, "w") as wf:
     wf.write(md_str)
