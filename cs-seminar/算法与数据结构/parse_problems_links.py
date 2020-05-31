@@ -1,7 +1,8 @@
 import requests
 import re
 
-fname = "tree-lc.html"
+fname_en = "tree-lc-en.html"
+fname_cn = "tree-lc-cn.html"
 out_fname = "tree-lc.txt"
 # headers = {
 #     "user-agent":"botnet-233"
@@ -12,31 +13,61 @@ out_fname = "tree-lc.txt"
 # with open(fname,"wb",encoding="utf-8") as wf:
 #     wf.write(req.content)
 
-with open(fname, "r") as rf:
-    text = rf.read()
+with open(fname_en, "r") as rf:
+    text_en = rf.read()
+with open(fname_cn, "r", encoding="utf-8") as rf:
+    text_cn = rf.read()
 
 link_en_bd = "https://leetcode.com{}"
-link_cn_bd = "https://leetcode-cn.com{}/solution"
+link_cn_bd = "https://leetcode-cn.com{}"
 
-tr_L = re.findall(r"<tr[\s\S]*?</tr>", text)
+tr_en_L = re.findall(r"<tr[\s\S]*?</tr>", text_en)
+tr_cn_L = re.findall(r"<tr[\s\S]*?</tr>", text_cn)
 # print(len(tr_L))
+lock_str = "&#128274;"
 
-md_head = "编号 | 中文 | 题目 | 通过率 / 难度\n"
+
+row_en_L = []
+for tr in tr_en_L:
+    td_L = re.findall("<td [\s\S]*?</td", tr)
+    idx_en = int(re.findall(r'value="(\d+)"',td_L[1])[0])
+    lock_en = lock_str if re.findall(r'unlock',td_L[2]) else ""
+    title_en = re.findall(r'value="([\s\S]*?)"',td_L[2])[0]
+    link_en = link_en_bd.format(re.findall(r'href="(.*?)"',td_L[2])[0])
+    # link_cn = link_cn_bd.format(re.findall(r'href="(.*?)"',td_L[2])[0])
+    acceptance_en = re.findall(r'value="([\s\S]*?)"',td_L[3])[0]
+    difficulty_en = re.findall(r'<span.*>([\s\S]*?)</span>',td_L[4])[0]
+    row_en_L.append([idx_en, lock_en, title_en, link_en, acceptance_en, difficulty_en])
+
+row_en_L = sorted(row_en_L, key=lambda l:l[0])
+
+row_cn_L = []
+for tr in tr_cn_L[:]:
+    td_L = re.findall("<td [\s\S]*?</td>", tr)
+    idx_cn = int(re.findall(r'>(.*)</td>',td_L[1])[0])
+    lock_cn = lock_str if re.findall(r'lock__13du',td_L[0]) else ""
+    title_cn = re.findall(r'title="([\s\S]*?)"',td_L[2])[0]
+    link_cn = link_cn_bd.format(re.findall(r'href="(.*?)"',td_L[2])[0])
+    acceptance_cn = re.findall(r']">(.*?)%</td>',td_L[4])[0]
+    difficulty_cn = re.findall(r'<span.*>(.*?)</span>',td_L[5])[0]
+    row_cn_L.append([idx_cn, lock_cn, title_cn, link_cn, acceptance_cn, difficulty_cn])
+row_cn_L = sorted(row_cn_L, key=lambda l:l[0])
+
+
+md_head = "编号 | 题目 | 通过率 / 难度\n"
 md_sep  = "---|---|---|---\n"
-md_line_bd = "{} | [中文]({}) | [{}]({}) | {}% / {}\n"
+md_line_bd = "{} | {} [{}]({})<br> {} [{}]({}) | {}% / {}\n"
 md_str = md_head + md_sep
+
+for i in range(len(row_en_L)):
+    idx_en, lock_en, title_en, link_en, acceptance_en, difficulty_en = row_en_L[i]
+    idx_cn, lock_cn, title_cn, link_cn, acceptance_cn, difficulty_cn = row_cn_L[i]
+    if idx_cn != idx_en:
+        idx_str = "{}<br>{}".format(idx_en, idx_cn)
+    else:
+        idx_str = str(idx_en)
+    md_str += md_line_bd.format(idx_str,  lock_en, title_en, link_en,  lock_cn, title_cn, link_cn,  acceptance_en, difficulty_en)
+
 with open(out_fname, "w") as wf:
-    for tr in tr_L[:]:
-        td_L = re.findall("<td [\s\S]*?</td", tr)
-        # print(len(td_L))
-        idx = re.findall(r'value="(\d+)"',td_L[1])[0]
-        title = re.findall(r'value="([\s\S]*?)"',td_L[2])[0]
-        link_en = link_en_bd.format(re.findall(r'href="(.*?)"',td_L[2])[0])
-        link_cn = link_cn_bd.format(re.findall(r'href="(.*?)"',td_L[2])[0])
-        acceptance = re.findall(r'value="([\s\S]*?)"',td_L[3])[0]
-        difficulty = re.findall(r'<span.*>([\s\S]*?)</span>',td_L[4])[0]
-        md_str += md_line_bd.format(idx, link_cn, title, link_en, acceptance, difficulty)
-    # print(md_str)
     wf.write(md_str)
-        
 
