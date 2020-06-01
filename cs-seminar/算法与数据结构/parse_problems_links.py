@@ -70,7 +70,10 @@ with open(in_fname, "r", encoding="utf-8") as rf:
                 sol_L.append([int(idx), string])
             idx, string = tuples
         else:
-            string+="<br>"+tuples[0]
+            if tuples[0].isdigit(): # idx without string
+                continue
+            else:
+                string+="<br>"+tuples[0]
     sol_L.append([int(idx), string])
 
 sol_L = sorted(sol_L, key=lambda l:l[0])
