@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Date: Thu, 23 Apr 2020 12:14:56 GMT
+Server: Apache/2.4.6
+Last-Modified: Mon, 12 Nov 2018 16:25:17
+ETag: "cf-57a7a257df256"
+Accept-Ranges: bytes
+Content-Length: 207
+Content-Type: text/html; charset=UTF-8
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta http-equiv="refresh"content="0;url=http://nyu.edu/projects/keithwross/">
+    <title> Automatic Forwarding </title>
+</head>

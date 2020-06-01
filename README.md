@@ -1,5 +1,11 @@
 ### Good References
 
+* 剑指Offer_编程题_牛客网 
+    * https://www.nowcoder.com/ta/coding-interviews
+
+* gatieme/CodingInterviews: 剑指Offer——名企面试官精讲典型编程题 
+    * https://github.com/gatieme/CodingInterviews
+
 * labuladong的算法小抄
   * https://labuladong.gitbook.io/algo/
 
@@ -8,6 +14,9 @@
 
 * ACM在线模版 - f-zyj_C/C++_逐梦者 - CSDN博客 
   * https://blog.csdn.net/f_zyj/article/details/51594851
+
+* 二叉树遍历的三种方法的非递归版本 - 简书 
+  * https://www.jianshu.com/p/1bfeedd54eaa
 
 
 ### Commonly used libraries
