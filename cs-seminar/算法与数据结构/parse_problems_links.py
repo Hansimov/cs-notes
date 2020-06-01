@@ -3,7 +3,9 @@ import re
 
 fname_en = "tree-lc-en.html"
 fname_cn = "tree-lc-cn.html"
-out_fname = "tree-lc.txt"
+in_fname = "树_解析.md"
+out_fname = "树_题目.md"
+
 # headers = {
 #     "user-agent":"botnet-233"
 # }
@@ -53,12 +55,33 @@ for tr in tr_cn_L[:]:
     row_cn_L.append([idx_cn, lock_cn, title_cn, link_cn, acceptance_cn, difficulty_cn])
 row_cn_L = sorted(row_cn_L, key=lambda l:l[0])
 
+sol_L = []
+with open(in_fname, "r", encoding="utf-8") as rf:
+    lines = rf.readlines()
+    idx, string = None, None
+    for line in lines:
+        if len(line.strip())==0:
+            continue
+        tuples = line.strip().split(" ",maxsplit=1)
+
+        if len(tuples)==2 and tuples[0].isdigit():
+            if idx != None:
+                # print(idx, string)
+                sol_L.append([int(idx), string])
+            idx, string = tuples
+        else:
+            string+="<br>"+tuples[0]
+    sol_L.append([int(idx), string])
+
+# print(sol_L)
+sol_L = sorted(sol_L, key=lambda l:l[0])
 
 md_head = "编号 | 题目 | 通过率 / 难度\n"
 md_sep  = "---:|---|---\n"
 md_line_bd = "{} {} | [{}]({})<br>[{}]({}) | {}% / {}\n"
 md_str = md_head + md_sep
-
+sol_str = "&nbsp; | {} |\n"
+sol_ptr = 0
 for i in range(len(row_en_L)):
     idx_en, lock_en, title_en, link_en, acceptance_en, difficulty_en = row_en_L[i]
     idx_cn, lock_cn, title_cn, link_cn, acceptance_cn, difficulty_cn = row_cn_L[i]
@@ -67,7 +90,11 @@ for i in range(len(row_en_L)):
     else:
         idx_str = str(idx_en)
     md_str += md_line_bd.format(idx_str, lock_en, title_en, link_en, title_cn, link_cn,  acceptance_en, difficulty_en)
+    if sol_ptr<len(sol_L) and sol_L[sol_ptr][0] == idx_en:
+        md_str += sol_str.format(sol_L[sol_ptr][1])
+        sol_ptr += 1
 
-with open(out_fname, "w") as wf:
+# print(md_str)
+with open(out_fname, "w", encoding="utf-8") as wf:
     wf.write(md_str)
 
