@@ -1,0 +1,11 @@
+*.*
+tree/
+
+!.gitignore
+!*.md
+!*.h
+!*.cpp
+!*.c
+!*.py
+!*.ppt
+!*.pptx
