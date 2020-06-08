@@ -15,9 +15,6 @@
 * ACM在线模版 - f-zyj_C/C++_逐梦者 - CSDN博客 
   * https://blog.csdn.net/f_zyj/article/details/51594851
 
-* 二叉树遍历的三种方法的非递归版本 - 简书 
-  * https://www.jianshu.com/p/1bfeedd54eaa
-
 
 ### Commonly used libraries
 

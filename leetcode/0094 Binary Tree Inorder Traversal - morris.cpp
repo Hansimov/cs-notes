@@ -42,8 +42,8 @@ public:
                     // this means the successor of pre has been linked,
                     // so this condition must happen when visiting node
                     //   instead of finding prev of cur
-                    pre->right = NULL; // remove change of the node
                     v.push_back(cur->val);
+                    pre->right = NULL; // remove change of the node
                     cur = cur->right;
                 }
             }
