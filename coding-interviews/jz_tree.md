@@ -1,9 +1,8 @@
 编号 | 题目 | 通过率 / 难度
 ---:|---|---
- 4<br>105 | [重建二叉树](https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&amp;&amp;tqId=11157&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking)<br>[Construct Binary Tree from Preorder and Inorder Traversal
-](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 23.45% / 中等
- 17<572> | [树的子结构](https://www.nowcoder.com/practice/6e196c44c7004d15b1610b9afca8bd88?tpId=13&amp;&amp;tqId=11170&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking)<br>[Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) | 23.51% / 较难
- 18 | [二叉树的镜像](https://www.nowcoder.com/practice/564f4c26aa584921bc75623e48ca3011?tpId=13&amp;&amp;tqId=11171&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 42.77% / 简单
+ 4<br>105 | [重建二叉树](https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&amp;&amp;tqId=11157&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking)<br>[Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 23.45% / 中等
+ 17<br>572 | [树的子结构](https://www.nowcoder.com/practice/6e196c44c7004d15b1610b9afca8bd88?tpId=13&amp;&amp;tqId=11170&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking)<br>[Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) | 23.51% / 较难
+ 18<br>226 | [二叉树的镜像](https://www.nowcoder.com/practice/564f4c26aa584921bc75623e48ca3011?tpId=13&amp;&amp;tqId=11171&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking)<br>[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) | 42.77% / 简单
  22 | [从上往下打印二叉树](https://www.nowcoder.com/practice/7fe2212963db4790b57431d9ed259701?tpId=13&amp;&amp;tqId=11175&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 26.81% / 困难
  23 | [二叉搜索树的后序遍历序列](https://www.nowcoder.com/practice/a861533d45854474ac791d90e447bafd?tpId=13&amp;&amp;tqId=11176&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 23.86% / 较难
  24 | [二叉树中和为某一值的路径](https://www.nowcoder.com/practice/b736e784e3e34731af99065031301bca?tpId=13&amp;&amp;tqId=11177&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 26.19% / 较难
