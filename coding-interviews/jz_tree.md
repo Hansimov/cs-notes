@@ -1,0 +1,17 @@
+编号 | 题目 | 通过率 / 难度
+---:|---|---
+ 4 | [重建二叉树](https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&amp;&amp;tqId=11157&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 23.45% / 中等
+ 17 | [树的子结构](https://www.nowcoder.com/practice/6e196c44c7004d15b1610b9afca8bd88?tpId=13&amp;&amp;tqId=11170&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 23.51% / 较难
+ 18 | [二叉树的镜像](https://www.nowcoder.com/practice/564f4c26aa584921bc75623e48ca3011?tpId=13&amp;&amp;tqId=11171&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 42.77% / 简单
+ 22 | [从上往下打印二叉树](https://www.nowcoder.com/practice/7fe2212963db4790b57431d9ed259701?tpId=13&amp;&amp;tqId=11175&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 26.81% / 困难
+ 23 | [二叉搜索树的后序遍历序列](https://www.nowcoder.com/practice/a861533d45854474ac791d90e447bafd?tpId=13&amp;&amp;tqId=11176&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 23.86% / 较难
+ 24 | [二叉树中和为某一值的路径](https://www.nowcoder.com/practice/b736e784e3e34731af99065031301bca?tpId=13&amp;&amp;tqId=11177&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 26.19% / 较难
+ 26 | [二叉搜索树与双向链表](https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5?tpId=13&amp;&amp;tqId=11179&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 28.02% / 中等
+ 38 | [二叉树的深度](https://www.nowcoder.com/practice/435fb86331474282a3499955f0a41e8b?tpId=13&amp;&amp;tqId=11191&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 46.12% / 简单
+ 39 | [平衡二叉树](https://www.nowcoder.com/practice/8b3b95850edb4115918ecebdf1b4d222?tpId=13&amp;&amp;tqId=11192&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 34.50% / 中等
+ 57 | [二叉树的下一个结点](https://www.nowcoder.com/practice/9023a0c988684a53960365b889ceaf5e?tpId=13&amp;&amp;tqId=11210&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 29.37% / 中等
+ 58 | [对称的二叉树](https://www.nowcoder.com/practice/ff05d44dfdb04e1d83bdbdab320efbcb?tpId=13&amp;&amp;tqId=11211&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 30.34% / 困难
+ 59 | [按之字形顺序打印二叉树](https://www.nowcoder.com/practice/91b69814117f4e8097390d107d2efbe0?tpId=13&amp;&amp;tqId=11212&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 23.34% / 较难
+ 60 | [把二叉树打印成多行](https://www.nowcoder.com/practice/445c44d982d04483b04a54f298796288?tpId=13&amp;&amp;tqId=11213&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 30.43% / 中等
+ 61 | [序列化二叉树](https://www.nowcoder.com/practice/cf7e25aa97c04cc1a68c8f040e71fb84?tpId=13&amp;&amp;tqId=11214&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 21.88% / 较难
+ 62 | [二叉搜索树的第k个结点](https://www.nowcoder.com/practice/ef068f602dde4d28aab2b210e859150a?tpId=13&amp;&amp;tqId=11215&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/coding-interviews/question-ranking) | 23.64% / 较难
