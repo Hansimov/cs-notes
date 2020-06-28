@@ -16,12 +16,12 @@
 class Solution {
 public:
     ListNode* revListNext=NULL;
-    ListNode* reverseFirstNNodes(ListNode* head, int n) {
-        if (n==1) {
+    ListNode* reverseFirstKNodes(ListNode* head, int k) {
+        if (k==1) {
             revListNext = head->next;
             return head;
         }
-        ListNode* last = reverseFirstNNodes(head->next, n-1);
+        ListNode* last = reverseFirstKNodes(head->next, k-1);
 
         head->next->next = head;
         head->next = revListNext;
@@ -32,7 +32,7 @@ public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
         if (head==NULL) return head;
         if (m==1)
-            return reverseFirstNNodes(head, n);
+            return reverseFirstKNodes(head, n);
         head->next = reverseBetween(head->next, m-1, n-1);
 
         return head;
