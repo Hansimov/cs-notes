@@ -1,3 +1,10 @@
+/*
+
+* 分发糖果 - 分发糖果 - 力扣（LeetCode） 
+    * https://leetcode-cn.com/problems/candy/solution/fen-fa-tang-guo-by-leetcode/
+
+*/
+
 class Solution {
 public:
     int candy(vector<int>& ratings) {
