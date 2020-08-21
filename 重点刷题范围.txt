@@ -1,4 +1,8 @@
+* 一个月 200 题，命中 80%，拿下 BAT，我独特的高效刷题法 
+https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247492309&idx=3&sn=47b50d2ca172e1aedd53ee191af3cb1e&chksm=fa0d8d54cd7a0442868d688e47b19d5ed3531e5b59a7790df3e02887527a53a754cb27deda01&mpshare=1&scene=1&srcid=07287vQkuIZ71Ns7Fa0ETBA4&sharer_sharetime=1597999226689&sharer_shareid=9d356c34f2ab7d0208f359ca352ea424&key=84b786dfa60f414b00a432aa8ce6151f55d76996fd7a84c084e7fe3964f19ae08349c71d2ab33800011c73d51fc62195a5bc62ae8b47c32605757b019704793d9134087c39101e63cc7aa6140a7b91e88e4c9bfd4c387338571387e122c8cfd419d564f6fcc8514b80416517e0bde88d955d7d17d38495073b42b2278d02d961&ascene=1&uin=MjQ4MDQ5MDMxNA%3D%3D&devicetype=Windows+10+x64&version=62090529&lang=zh_CN&exportkey=AxYfna%2F4%2F4cONHXSES5xZ%2Fw%3D&pass_ticket=Bqci7fQqd6gThuJc9EHTn092z8Ulo58OioR7pgh1G7OpsB7GJrQM83dk3sbopERJ
+
 快排
+LRU
 
 
 1. 两数之和
