@@ -19,7 +19,7 @@ for line in txt_lines:
 # res_L = re.findall(r"\[(.*)\]\((.*)\)", txt_str)
 out_str = ""
 for item in res_L:
-    out_str += "{:>3} {} {}\n".format(item[0], re.sub(r"\s+", "", item[1]), item[2])
+    out_str += "{:<3} {} {}\n".format(item[0], re.sub(r"\s+", "", item[1]), item[2])
 
 with open(fname_out, encoding="utf-8", mode="w") as wf:
     wf.write(out_str)
