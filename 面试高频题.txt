@@ -34,7 +34,6 @@ https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247492309&idx=3&sn=47b50d
  - [最接近的三数之和](https://leetcode-cn.com/problems/3sum-closest)
 
 11. 电话号码的字母组合
- - [组合](https://leetcode-cn.com/problems/combinations)
  - [电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number)
 
 12. 四数之和
@@ -183,8 +182,8 @@ https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247492309&idx=3&sn=47b50d
  - [有序链表转换二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree)
 
 60. 路径总和 II
- - [路径总和 II](https://leetcode-cn.com/problems/path-sum-ii)
  - [路径总和](https://leetcode-cn.com/problems/path-sum)
+ - [路径总和 II](https://leetcode-cn.com/problems/path-sum-ii)
 
 61. 二叉树展开为链表
  - [二叉树展开为链表](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list)
@@ -363,9 +362,9 @@ https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247492309&idx=3&sn=47b50d
  - [递增的三元子序列](https://leetcode-cn.com/problems/increasing-triplet-subsequence)
 
 119. 打家劫舍 III
- - [打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii)
- - [打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii)
  - [打家劫舍](https://leetcode-cn.com/problems/house-robber)
+ - [打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii)
+ - [打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii)
 
 120. 比特位计数
  - [比特位计数](https://leetcode-cn.com/problems/counting-bits)
@@ -639,4 +638,3 @@ https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247492309&idx=3&sn=47b50d
 
 208. 求 1+2+…+n
  - [求 1+2+…+n](https://leetcode-cn.com/problems/qiu-12n-lcof)
-
