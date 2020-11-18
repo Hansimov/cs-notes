@@ -1,1 +1,0 @@
-Get-Content ".\8-1 input.txt" | & ".\8-1 istream.exe"

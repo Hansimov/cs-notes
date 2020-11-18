@@ -1,1 +1,0 @@
-Get-Content ".\2-41 input data.txt" | & ".\2-41 rewrite sales data.exe"

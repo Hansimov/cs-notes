@@ -21,7 +21,6 @@ where hire_date = (
 
 
 
-
 -- NK-03 查找当前薪水详情以及部门编号.sql
 ----------------------------------------
 select s.*, d.dept_no
@@ -30,8 +29,6 @@ from salaries as s
 on s.emp_no = d.emp_no
 where s.to_date = '9999-01-01'
     and d.to_date = '9999-01-01'
-
-
 
 
 -- NK-04 查找所有已经分配部门员工的信息.sql

@@ -1,1 +1,0 @@
-Get-Content ".\5-24 input.txt" | & ".\5-24 throw.exe"

@@ -1,1 +1,0 @@
-& ".\6-25 main arg.exe" hello world 1,2,3

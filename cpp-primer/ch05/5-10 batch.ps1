@@ -1,1 +1,0 @@
-Get-Content ".\5-10 input.txt" | & ".\5-10 count vowel.exe"

@@ -1,6 +1,6 @@
 import random
 
-# [b,e]
+# [b,e]: closed range
 def partition(arr, b, e):
     k = random.randint(b,e)
     nums[e], nums[k] = nums[k], nums[e]

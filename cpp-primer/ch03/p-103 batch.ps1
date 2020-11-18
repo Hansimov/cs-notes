@@ -1,1 +1,0 @@
-Get-Content ".\p-103 input.txt" | & ".\p-103 cin string.exe"
