@@ -9,15 +9,13 @@ public:
             return true;
 
         visited[i][j] = true;
-        bool tmp_flag = false;
         for (const auto& d: directions) {
             int i_new = i + d.first;
             int j_new = j + d.second;
             if (i_new>=0 && i_new<board.size() && j_new>=0 && j_new<board[0].size()) {
                 if (visited[i_new][j_new])
                     continue;
-                tmp_flag = check(i_new, j_new, k+1, board, visited, word);
-                if (tmp_flag) {
+                if (check(i_new, j_new, k+1, board, visited, word)) {
                     visited[i][j] = false;
                     return true;
                 }
