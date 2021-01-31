@@ -1,0 +1,33 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{tikz-qtree}
+\begin{document}
+\tikzset{every tree node/.style={minimum width=2em,draw,circle},
+         blank/.style={draw=none},
+         edge from parent/.style=
+         {draw, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}},
+         level distance=1.2cm,
+         sibling distance=0.4cm,
+}
+\begin{tikzpicture}
+\Tree
+[.8
+    [.5
+        [.1 
+            \node[blank,text=red, font=\bfseries]{×};
+            \node[blank,text=red, font=\bfseries]{×};
+        ]
+        [.7 
+            \node[blank,text=red, font=\bfseries]{×};
+            \node[blank,text=red, font=\bfseries]{×};
+        ]
+    ]
+    [.10  
+        \node[blank,text=red, font=\bfseries]{×};
+        [.12 
+            \node[blank,text=red, font=\bfseries]{×};
+            \node[blank,text=red, font=\bfseries]{×};
+        ]
+]
+]
+\end{tikzpicture}
+\end{document}
