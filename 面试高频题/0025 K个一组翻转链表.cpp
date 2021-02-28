@@ -20,22 +20,23 @@ public:
     }
 
     ListNode* reverseKGroup(ListNode* head, int k) {
-        ListNode* dum = new ListNode(0);
+        ListNode *dum = new ListNode(0);
         dum->next = head;
-        ListNode* pre=dum, *next;
-        ListNode* start,   *end=dum;
+        ListNode *start, *end=dum;  // first and last of k-group
+        ListNode *pre=dum, *next;   // pre of start, next of end
         while (end->next) {
-            for (int i=0; i<k && end; ++i) {
+            for (int i=0; i<k && end; ++i)
                 end = end->next;
-            }
+            // not reach k nodes
             if (!end) break;
-            next = end->next;
+            // break current k-group from whole linked list
             start = pre->next;
+            next = end->next;
             end->next = nullptr;
-
+            // reverse k-group and connect to 
             pre->next = reverseLinkedList(start);
             start->next = next;
-
+            // connect current (reversed) k-group with pre and next
             pre = start;
             end = start;
         }
