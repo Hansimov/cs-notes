@@ -1,22 +1,19 @@
 ### Good References
 
+* CodeTop企业题库
+    * https://codetop.cc/#/home
+
+* 力扣 (LeetCode)
+    * https://leetcode-cn.com/problemset/all/
+
 * 剑指Offer_编程题_牛客网 
     * https://www.nowcoder.com/ta/coding-interviews
-
-* gatieme/CodingInterviews: 剑指Offer——名企面试官精讲典型编程题 
-    * https://github.com/gatieme/CodingInterviews
 
 * labuladong的算法小抄
   * https://labuladong.gitbook.io/algo/
 
-* LeetCode 刷题总结系列 - 舞动的心 - 博客园 
-  * https://www.cnblogs.com/liuzhen1995/category/1533797.html
 
-* ACM在线模版 - f-zyj_C/C++_逐梦者 - CSDN博客 
-  * https://blog.csdn.net/f_zyj/article/details/51594851
-
-
-### Commonly used libraries
+### Commonly-used test cases
 
 ```cpp
 #include <iostream>
