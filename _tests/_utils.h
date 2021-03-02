@@ -1,3 +1,4 @@
+#include <cstdio>
 #include <iostream>
 #include <vector>
 #include <iterator> // begin, end
@@ -26,6 +27,7 @@ void disp(const std::vector<T> & v) {
 void disp() {
     std::cout << std::endl;
 }
+
 template <typename T, typename ... REST>
 void disp(const T & t, const REST & ... rest) {
     std::cout << t << " ";
