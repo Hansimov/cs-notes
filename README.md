@@ -1,17 +1,9 @@
-## Hansimov 的算法题笔记
+## Hansimov 的算法代码和笔记
 
-### 部分高频代码题解
+- [部分高频代码题解](./高频代码题解.pdf)
 
-[](./高频代码题解.pdf)
+- [LeetCode](./leetcode)
 
-### LeetCode
+- [剑指 Offer](./剑指offer_2nd)
 
-[](./leetcode)
-
-### 剑指 Offer
-
-[](./剑指offer_2nd)
-
-### Test
-
-[](./_tests)
+- [一些算法和实现](./_tests)
