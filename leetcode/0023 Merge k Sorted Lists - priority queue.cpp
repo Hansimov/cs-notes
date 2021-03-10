@@ -47,7 +47,6 @@ public:
             pq.pop();
             if (cur->next)
                 pq.push(cur->next);
-
         }
 
         return dummyHead->next;
