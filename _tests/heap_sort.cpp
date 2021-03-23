@@ -7,7 +7,7 @@
 using namespace std;
 
 bool cmp(int a, int b) {
-    return a < b;
+    return a < b; // max heap
 }
 
 void heapify(vector<int> &nums, int i, int r_bound, bool (*cmp)(int, int)) {
