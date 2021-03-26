@@ -87,8 +87,8 @@ void ThreadBar(){
 }
 
 int main() {
-    std::cout <<"√ two values are same: singleton was reused \n" <<
-                "× two values are not same: 2 singletons were created \n\n" <<
+    std::cout <<"√ two values are same: singleton reused \n" <<
+                "× two values are not same: 2 singletons created \n\n" <<
                 "RESULT:\n";   
     std::thread t1(ThreadFoo);
     std::thread t2(ThreadBar);
